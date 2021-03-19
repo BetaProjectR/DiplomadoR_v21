@@ -7,12 +7,12 @@ Profesionales o graduados con nivel de licenciado o Magister relacionados con la
 
 **PROFESORES:**  
 
-**JOSÉ ANDRÉS GALLARDO MATUS**
+[**JOSÉ ANDRÉS GALLARDO MATUS**](https://github.com/DrJoseGallardo)  
 Doctor en Ciencias por la Universidad de Chile, Chile.
 Biólogo Marino por la Universidad Católica de la Santísima Concepción, Chile.
 Profesor adjunto de la Pontificia Universidad Católica de Valparaíso, Chile.
 
-**MARÍA ANGÉLICA RUEDA CALDERÓN**
+**MARÍA ANGÉLICA RUEDA CALDERÓN**  
 
 Doctora en Ciencias Agropecuarias por la Universidad Nacional de Córdoba, Argentina.
 Licenciada en Matemáticas por la Universidad Industrial de Santander, Colombia.
