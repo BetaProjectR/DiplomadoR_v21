@@ -1,0 +1,202 @@
+---
+title: "Programación con R"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: ontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "`r format(Sys.time(), '%B %d, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+  word_document: default
+  pdf_document: default
+---
+  
+#### Objetivos de aprendizaje
+
+1.- Iniciar un proyecto de análisis de datos con R usando el software **[Rstudio.Cloud](https://rstudio.cloud/)**.
+
+2.- Escribir un código de programación con el **[software R](https://www.r-project.org/about.html)**.
+
+3.- Familiarizarse con la habilitación de librerías y con la creación y manipulación de objetos con R.
+  
+#### Conceptos importantes
+
+**Variables:** Características que se pueden medir en un individuo o en un ambiente.
+
+**Datos:** Son los valores que puede tomar una variable o las mediciones que se hace de las características de un individuo o su ambiente.
+ 
+**Variable aleatoria:** Es una variable cuyo valor se determina por el azar. Las variables aleatorias se representan por letras mayúsculas y sus valores numéricos por letras minúsculas.
+
+#### Software.
+
+**R**
+R es un lenguaje de programación orientado a *objetos*.
+
+Esta es la versión de R que se usó para crear esta guía.
+```{r, echo=TRUE}
+R.version.string
+```
+
+#### Librerías.
+  
+**{stats}**, **{base}**, **{graphics}**
+  
+#### Comandos y argumentos.
+
+**library()**  
+Este comando permite instalar librerías en R.  
+Ejemplo: *library(stats)*
+
+**<-**  
+Este comando permite crear objetos. Por ejemplo, el siguiente código crea un objeto llamado datos con 4 elementos denominados 1,2,3 y 4.  
+*datos <- c(1,2,3,4)*
+
+**set.seed()**    
+Establece una semilla o punto de inicio para la generación de números aleatorios. Permite obtener resultados reproducibles cada vez.
+
+**hist(x)**  
+Genera el histograma de un conjunto de valores x.
+
+**plot(x, y)**  
+Función genérica para generar gráficos x-y
+
+**mean()**
+Función para calcular el promedio.
+
+**sd()**
+Función para calcular la desviasión estandar.
+
+#### EJERCICIOS
+
+
+
+**Ejercicio 1.** Habilite las librerías **stats**, **base** y **graphics** usando la función library(). Ejecute el comando help en la consola e investigue las funciones contenidas en cada librería.
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(stats)
+library(base)
+library(graphics)
+
+help(stats)
+help(base)
+help(graphics)
+```
+
+
+## Ejercicio 1. Análisis exploratorio de un vector. 
+
+### Realice un análisis exploratorio del set de datos “rivers” de la librería datasets (library(help = "datasets")).  Use las siguientes funciones: help(), str(), class(), head(), tail(), summary(), hist().
+
+
+```{r rivers}
+rivers
+help(rivers)
+str(rivers)
+class(rivers)
+head(rivers)
+tail(rivers)
+summary(rivers)
+hist(rivers, main = "Longitudes de los principales ríos de América del Norte", xlab = "Ríos", ylab = "Frecuencia", col = "Aquamarine")
+```
+
+## EJERCICIO 2. Trabajando con matrices.
+### A partir de la matriz “curso_r” elaborada en la clase, trabaje con operadores y responda las siguientes consultas:
+
+#### ¿Quienes reprobaron el curso?
+#### ¿Cuantos alumnos menores de 20 años realizaron el curso?
+#### ¿Cuantos alumnos no tienen 18 años?
+#### ¿Cuantos alumnos tienen entre 21 y 22 años?
+#### ¿Cual es el promedio de notas de los alumnos aprobados? 
+#### ¿Cual es el promedio de notas de los alumnos reprobados?
+
+
+```{r }
+alumno <- c(1:5)
+edad <- c(19,22,21,18,20)
+notas <- c(3.5, 4.0, 5.5, 6.0, 2.8)
+curso_r = cbind(alumno, edad, notas)
+rownames(curso_r) <- c("Patricia", "Eduardo", "Carly", "Frenkel", "José")
+colnames(curso_r) <- c("Estudiantes", "Años", "Notas")
+curso_r
+### ¿Quienes reprobaron el curso?
+Reprobados = curso_r[curso_r[,3]<4,]
+Reprobados
+### ¿Cuantos alumnos menores de 20 años realizaron el curso?
+Menoresde20 = curso_r[curso_r[,2]<20,]
+Menoresde20
+nrow(Menoresde20)
+### ¿Cuantos alumnos no tienen 18 años?
+distintode18 = curso_r[curso_r[,2]!= 18,]
+distintode18
+nrow(distintode18)
+### ¿Cuantos alumnos tienen entre 21 y 22 años?
+de21= curso_r[curso_r[,2]>=21,]
+de22 = curso_r[curso_r[,2]<=22,]
+vu = nrow(de21)
+vd = nrow(de22)
+de21y22 = vu+vd
+de21y22
+### ¿Cual es el promedio de notas de los alumnos aprobados? 
+Aprobados = curso_r[curso_r[,3]>=4,]
+Aprobados
+mean(Aprobados[,3])
+### ¿Cual es el promedio de notas de los alumnos reprobados?
+mean(Reprobados[,3])
+```
+
+## EJERCICIO 3. Trabajando con Data Frame.
+### Usando el set de datos “PlantGrowth” de la librería datasets (library(help = "datasets")).  Compare el crecimiento del grupo control y de los tratamientos usando las funciones: mean(),  sd() y median().
+
+```{r Plangrowtht}
+PlantGrowth
+#WP = PlantGrowth$weight
+#mean(WP)
+Prom = mean(PlantGrowth[,1])
+Desvia.STD = sd(PlantGrowth[,1])
+Mediana = median(PlantGrowth[,1])
+boxplot(PlantGrowth$weight ~ PlantGrowth$group,  type = "b",main = "Crecimiento de plantas", ylab = "Peso seco de las plantas", xlab = "Grupo de planta", col = "Aliceblue")
+
+```
+
+## EJERCICIO 4. Trabajando con datos. 
+### A partir de los siguientes vectores denominados día (Day), temperatura (Tem) y humedad relativa (HR) colectados en el centro meteorológico de Valparaíso durante la primera quincena de noviembre de 2014 realice las siguientes ejercicios.
+
+
+#### Día
+#### L1, M2, M3, J4, V5, S6, D7, L8, M9, M10, J11, V12, S13, D14, L15
+
+#### Temperatura
+#### 19, 18, 16, 18, 21, 19, 16, 15, 18, 21, 24, 14, 14, 14, 14
+
+#### Humedad Relativa
+#### 59.3, 71.1, 72.9, 70.1, 61.5, 79.9, 85, 80.2, 81.2, 69.5, 66.3, 80.9, 86.1, 88.6, 89.2
+
+#### a)	Elabore 3 objetos tipo vector, uno para cada variable.
+#### b)	Una las tres variables en una sola tabla, use la función data.frame().
+#### c)	Realice un análisis exploratorio de datos (mean,  sd, median, max, min) para las variables Tem y HR.
+#### d)	Establezca la correlación entre las variables Tem y HR usando la función cor().
+#### e)	Gráfique la relación de ambas variables usando la función plot().
+
+BOD - Biochemical Oxygen Demand
+
+```{r}
+Dia <- c("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo", "Lunes" )
+Temperatura <- c(19, 18, 16, 18, 21, 19, 16, 15, 18, 21, 24, 14, 14, 14, 14)
+HumedadRelativa <- c(59.3, 71.1, 72.9, 70.1, 61.5, 79.9, 85, 80.2, 81.2, 69.5, 66.3, 80.9, 86.1, 88.6, 89.2)
+data.frame(Dia, Temperatura, HumedadRelativa)
+mean(Temperatura)
+sd(Temperatura)
+median(Temperatura)
+min(Temperatura)
+max(Temperatura)
+mean(HumedadRelativa)
+sd(HumedadRelativa)
+median(HumedadRelativa)
+min(HumedadRelativa)
+max(HumedadRelativa)
+cor(Temperatura, HumedadRelativa)
+plot(Temperatura ~ HumedadRelativa,main = "Correlación ", xlab = "Humedad relativa", ylab = "Temperatura", col = "blueviolet" )
