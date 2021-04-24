@@ -23,22 +23,22 @@ Investigador post-doctoral de la Pontificia Universidad Católica de Valparaíso
 
 **UNIDAD 1. INVESTIGACIÓN REPRODUCIBLE Y ANÁLISIS EXPLORATORIO DE DATOS**
 
-Subtópico 1.1.- Investigación reproducible.
-Subtópico 1.2.- Variables aleatorias y distribuciones de probabilidad.
-Subtópico 1.3.- Análisis exploratorio de datos.
+Subtópico 1.1.- Investigación reproducible.  
+Subtópico 1.2.- Variables aleatorias y distribuciones de probabilidad.  
+Subtópico 1.3.- Análisis exploratorio de datos.  
 
 **UNIDAD 2. PRUEBAS DE CONTRASTES DE HIPÓTESIS PARAMÉTRICAS Y NO PARAMÉTRICAS**
 
-Subtópico 2.1.- Pruebas de contraste de hipótesis paramétrica.
-Subtópico 2.2.- Pruebas de contraste de hipótesis no paramétrica.
+Subtópico 2.1.- Pruebas de contraste de hipótesis paramétrica.  
+Subtópico 2.2.- Pruebas de contraste de hipótesis no paramétrica.   
 
 **UNIDAD 3. MODELOS LINEALES Y NO LINEALES**
 
-Subtópico 3.1.- Modelos lineales.
-Subtópico 3.2.- Modelos lineales generalizados.
-Subtópico 3.3.- Modelos no lineales.
+Subtópico 3.1.- Modelos lineales.  
+Subtópico 3.2.- Modelos lineales generalizados.  
+Subtópico 3.3.- Modelos no lineales.  
 
 **UNIDAD 4. PROYECTO PERSONAL DE ANÁLISIS DE DATOS CON R**
 
-Subtópico 4.1.- Simulación o recopilación de datos de acuicultura relacionados.
-Subtópico 4.2.- Análisis de datos con R
+Subtópico 4.1.- Simulación o recopilación de datos de acuicultura relacionados.  
+Subtópico 4.2.- Análisis de datos con R.  
