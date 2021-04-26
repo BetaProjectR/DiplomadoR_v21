@@ -46,10 +46,10 @@ knitr::include_graphics("Genotipos_Tiger_Shrimp.png")
 
 ## Caso 4
 
-- Paper efecto de coinfección en sobrevivencia de salmon del Atlántico. Figueroa, 2017
+- Paper efecto de coinfección en mortalidad de salmon del Atlántico. Lhorente, 2014
 
-```{r, echo=FALSE, out.width = '50%' }
-knitr::include_graphics("Sobrevivencia_coinfecion.png")
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("Mortalidad_coinfecion.png")
 ```
 
 ## Caso 5
