@@ -1,0 +1,192 @@
+---
+title: "Diplomado en Análisis de datos con R para la acuicultura"
+author:
+  name: Dr. José A. Gallardo.
+date: "15/4/2021"
+output:
+  ioslides_presentation:
+    template: quarterly_report.html
+  beamer_presentation: default
+subtitle: CLASE 1 PRESENTACIÓN
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 
+<div class="centered">
+<div class="blue">
+**PLAN DE LA CLASE**
+</div>
+</div>
+
+<div class="blue">
+**1).** Palabras de Bienvenida.
+
+**2).** Presentación de los participantes.
+
+**3).** Programa del curso.
+
+**4).** Habilitar recursos de aprendizaje.
+</div>
+
+
+## 
+<div class="centered">
+<div class="blue">
+**PROFESORES**
+</div>
+</div>
+
+<div class="black">
+**Dr. José Gallardo**
+Profesor adjunto PUCV
+Doctor en Ciencias
+
+**Dr. María Angélica Rueda**
+Investigadora PUCV
+Doctor en Ciencias Agropecuarias
+</div>
+
+## {.flexbox .vcenter}
+<div class="centered">
+<div class="blue">
+**PRESENTACIÓN Y REVISIÓN DEL PROGRAMA DEL CURSO**
+</div>
+</div>
+
+
+##
+<div class="lefted">
+<div class="blue">
+**DESCRIPCIÓN Y PRERREQUISITOS **
+</div>
+</div>
+
+###
+<div class="black">
+El **_Diplomado en análisis de datos con R para la acuicultura_** tiene como propósito que los estudiantes desarrollen habilidades para llevar a cabo un proyecto de análisis de datos e investigación reproducible en acuicultura usando el lenguaje de programación **R**. 
+
+
+* **Bioestadística.**
+* **Programación en R.**
+</div>
+
+
+##
+<div class="lefted">
+<div class="blue">
+**FECHAS DE CLASES**
+</div>
+</div>
+
+<div class="black">
+
+**Presentación del diplomado y evaluación diagnóstica**
+
+Jueves 15 de abril - 19:00 - 20:00 P.M.
+
+**Clases sincrónicas**
+
+Martes y jueves de 19:00 - 21:00 P.M.
+
+**20,22,27,29 de abril**
+
+**4,6,11,13,18,20,25,27 de mayo**
+
+**1,3,8,10,15,17,22,24,29 de junio**
+
+**6,8,13,15,20,22,26 de julio**
+
+**Cierre del diplomado y entrega de certificados de aprobación**
+Jueves 12 de agosto -19:00 - 20:00 P.M.
+
+
+##
+<div class="lefted">
+<div class="black">
+**CONTENIDOS CENTRALES**
+</div>
+</div>
+
+<div class="blue">
+
+**UNIDAD 1**
+
+INVESTIGACIÓN REPRODUCIBLE Y ANÁLISIS EXPLORATORIO DE DATOS.
+
+**UNIDAD 2**
+
+CONTRASTES DE HIPÓTESIS PARAMÉTRICAS Y NO PARAMÉTRICAS.
+
+**UNIDAD 3**
+
+MODELOS LINEALES Y ANÁLISIS MULTIVARIADO. 
+
+**UNIDAD 4**
+
+PROYECTO PERSONAL Y ANÁLISIS DE DATOS CON **R**. 
+</div>
+
+
+##
+<div class="lefted">
+<div class="blue">
+**COMPONENTES DE EVALUACIÓN**
+</div>
+</div>
+<div class="black">
+**1).** **Tareas de autoaprendizaje:** Número variable de tareas de autoaprendizaje asignadas por el profesor mediante la plataforma **[DataCamp](https://www.datacamp.com/)**.
+
+**2).** **Tareas de evaluación de competencias:** Cuatro tareas de resolución de problemas o ejercicios en forma individual, una para cada unidad.
+
+**3).** **Nota de aprobación:** La nota final de aprobación es un **4,0** con un 60% de exigencia, la que se calculará como el promedio simple de las 4 tareas de evaluación de competencias. 
+
+**4).** **Calificación por no entrega de tareas:** No entregar las tareas en el plazo establecido para ello será calificado con la nota mínima **(1,0)**.
+
+**5).** **Causales de reprobación:** 1) Promedio menor a **4,0** en las tareas de evaluación de competencias, b) No realizar el **100%** de las tareas de autoaprendizaje, c) Asistencia a clases sincrónicas menor al **75%**.
+
+## {.flexbox .vcenter}
+<div class="centered">
+<div class="blue">
+**RECURSOS DE APRENDIZAJE**
+</div>
+</div>
+
+##
+<div class="lefted">
+<div class="blue">
+**CORREO MAIL PUCV**
+</div>
+</div>
+
+##
+<div class="lefted">
+<div class="blue">
+**FORO DE PREGUNTAS - SLACK**
+</div>
+</div>
+
+##
+<div class="lefted">
+<div class="blue">
+**CUENTA EN DATACAMP**
+</div>
+</div>
+
+##
+<div class="lefted">
+<div class="blue">
+**CUENTA EN R STUDIO CLOUD:** **_PRÓXIMO MARTES_**
+</div>
+</div>
+
+##
+<div class="lefted">
+<div class="blue">
+**TAREA SEMANA 1**
+</div>
+</div>
+
+

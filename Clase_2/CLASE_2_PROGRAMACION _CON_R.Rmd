@@ -1,0 +1,408 @@
+---
+title: "Diplomado en Análisis de datos con R para la acuicultura"
+author:
+  name: Dr. José A. Gallardo.
+date: "20/4/2021"
+output:
+  ioslides_presentation:
+    template: quarterly_report.html
+  beamer_presentation: default
+subtitle: CLASE 2 PROGRAMACION CON R
+---
+
+```{r setup, include=FALSE, comment=TRUE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 
+<div class="centered">
+<div class="black">
+**PLAN DE CLASE**
+</div>
+</div>
+
+<div class="black">
+**1).** **Introducción**
+</div>
+
+- **Preguntas al curso.**
+
+- **Estudio de caso.**
+
+- **Investigación reproducible.**
+
+- **Software para el análisis de datos.**
+
+<div class="black">
+**2).** **Práctica con R y Rstudio cloud**
+</div>
+
+- **Iniciar un proyecto de análisis de datos con R.**
+
+- **Escribir un código de programación o script.**
+
+- **Familiarizarse con manipulación de objetos y datos.**
+
+
+## {.flexbox .vcenter}
+<div class="black">
+<div class="centered">
+**Introducción**
+
+**_Clase 2 – Programación con R_**
+</div>
+</div>
+## 
+<div class="centered">
+<div class="black">
+**PREGUNTAS AL CURSO**
+</div>
+</div>
+
+<div class="black">
+**1).** **¿ Por qué deseas hacer análisis de datos con R?**
+
+**2).** **¿ Qué problemas has tenido cuando quieres rehacer un análisis de datos a partir de un set de datos antiguo o en el que no has trabajado por mucho tiempo?**
+</div>
+
+## 
+**ESTUDIO DE CASO: Bloom de algas marzo 2016**
+
+<div class="columns-2">
+![](C:/Users/angel/Google Drive/Chile_2021/Diplomados_2021/Diplomado Primer cuatrimestre_2021/CLASES_GITHUB/Imagenes_PPT/CLASE2/ALGAS1.png)
+
+
+
+<div class="black">
+<div class="centered">
+
+**CONSECUENCIAS ACUICULTURA**
+</div>
+</div>
+
+<div class="black">
+**Acuicultura**
+
+45 centros de cultivo
+
+14 empresas
+
+**Mortalidad**
+
++25 millones de peces
+
+40 mil toneladas
+
+**Vertimiento de mortalidad al mar**
+
+5.000 toneladas
+</div>
+
+##
+
+<div class="black">
+<div class="lefted">
+**ESTUDIO DE CASO:Reporte Greanpeace**
+</div>
+</div>
+
+
+<div class="black">
+<div class="centered">
+
+**Reporte Crisis Social Ambiental en Chiloé**
+
+**GREANPEACE**
+
+**Resumen Ejecutivo Septiembre 2016**
+</div>
+</div>
+
+<div class="black">
+La principal conclusión de esta investigación es que si bien el **bloom de algas** estaba presente en la zona con anterioridad al vertimiento, **el salmón vertido actuó como un "fertilizante" de éste aumentando su magnitud, intensidad y alcance.**
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+
+**TRABAJO EN GRUPO**
+
+</div>
+</div>
+<div class="black">
+
+**¿Quién fue el analista?**
+
+
+**¿Qué datos están disponibles?**
+
+
+**¿Qué software se utilizó para los análisis?**
+
+
+**¿Qué test estadístico se utilizó y cuál fue su significancia?**
+
+
+**¿Podría usted llegar a la misma conclusión del reporte con la información disponible?**
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+
+**INVESTIGACIÓN REPRODUCIBLE**
+
+</div>
+</div>
+
+<div class="centered">
+<div class="black">
+**Investigación reproducible** implica que desde los mismos datos y códigos se generarán los mismos resultados.
+
+</div>
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+
+**ALGUNOS CRITERIOS DE REPRODUCIBILIDAD**
+
+</div>
+</div>
+
+<div class="black">
+- **Los datos originales están disponibles en la nube.**
+- Los datos están almacenados en formato abierto (texto) .
+- **Todo el análisis y manejo de datos se hace mediante código.**
+- El código genera las tablas y figuras finales.
+- **Los datos brutos están separados de los datos derivados.**
+- Existe un **_‘script’_** maestro que ejecuta todos los pasos del análisis ordenadamente.
+- **Existe un documento README que explica los objetivos y organización del proyecto.**
+- Tanto el reporte, como los datos y código son públicos.
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+
+**BENEFICIOS DE LA CIENCIA REPRODUCIBLE PARA EL ANALISTA DE DATOS**
+
+</div>
+</div>
+
+<div class="black">
+
+- **Permite la ejecución de tareas de análisis repetitivo sin esfuerzo.**
+- Muy fácil corregir y regenerar resultados, tablas y figuras.
+- **Reducción drástica del riesgo de errores.**
+- Facilitan la colaboración.
+- **Mayor facilidad para escribir reportes.**
+- Facilita el proceso de revisión.
+- **Ahorro de tiempo y esfuerzo al reutilizar código en otros proyectos.**
+</div>
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**RUTA DEL ANÁLISIS DE DATOS REPRODUCIBLE**
+
+</div>
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+
+**¿QUÉ ES R?**
+
+</div>
+</div>
+
+<div class="black">
+**1).** **R** es un lenguaje y entorno de programación de código abierto o libre creado por Ross Ihaka y Robert Gentleman en 1993 (University of Auckland) para realizar análisis estadísticos y gráficos.
+
+
+**2).** Los usuarios de R tienen la libertad de ejecutar, copiar, distribuir, estudiar, modificar y mejorar el **_software_**.
+
+**3).** Utilizar **R** supone un ahorro económico para los estudiantes, las instituciones educativas o incluso las empresas que decidan usarlo.
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+
+**¿POR QUÉ USAR "R" EN CIENCIA REPRODUCIBLE?**
+
+</div>
+</div>
+
+<div class="black">
+
+- Aprender a usar **R** te da **_independencia digital_**, te permite **_cooperar con otros_** y **_beneficiarte de la ayuda de otro._**
+
+- Actualmente existen cerca de **17.000 librerías** o aplicaciones disponibles de forma gratuita para trabajar con R en ámbitos tan diferentes como las ciencias sociales, la economía, la astronomía, la ingeniería y la acuicultura.
+
+- **R** permite entonces difundir el conocimiento a toda la sociedad y no solo a los que pueden pagar por ella.
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+
+**¿QUÉ ES R STUDIO?**
+
+</div>
+</div>
+
+<div class="black">
+
+* **Rstudio** es el más popular entorno de desarrollo integrado (integrated development environment, IDE) para trabajar con **R**.
+
+* **Rstudio** es un **_software_** libre y de código abierto creado por **Joseph J. Allaire en 2009** para la ciencia de datos, la investigación científica y la comunicación técnica.
+
+* Actualmente es mantenido por la Corporación de Beneficio Público **Rstudio PCB**, la que ha creado otros software como Rmarkdown.
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+**R ES UN LENGUAJE ORIENTADO A OBJETOS**
+</div>
+</div>
+<div class="columns-2">
+![](C:/Users/angel/Google Drive/Chile_2021/Diplomados_2021/Diplomado Primer cuatrimestre_2021/CLASES_GITHUB/Imagenes_PPT/CLASE2/ALGAS1.png)
+
+<div class="black">
+<div class="centered">
+
+* Trabajan ad honoren.
+* Apagan incendios.
+* Puede usar diferentes equipos.
+* Reciben instrucciones sobre como apagar un incendio.
+* No pueden detener a ladrones.
+
+* Almacenan texto o números.
+* Primera fila contiene el nombre de variables.
+* Puedo unir con otro **data.frame**.
+* Puedo aplicar funciones para calcular estadísticos.
+* No tiene atributos de una matriz.
+</div>
+</div>
+</div>
+
+##
+
+matrix
+
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**¿QUÉ ES UN SCRIPT?**
+
+</div>
+</div>
+
+<div class="black">
+
+Los **_scripts_** son documentos de texto con una secuencia de comandos que permiten ejecutar programas.
+
+Estos archivos son iguales a cualquier documentos de texto, pero **R puede leer y ejecutar** el código que contienen.
+
+Los códigos de **R** están contenidos en librerías o packages.
+
+Algunos **_script_** que usaremos en este curso tienen extensión de archivo **.R**, por ejemplo mi_script.R o **.Rmd** (Rmarkdown) por ejemplo reporte.Rmd.
+
+</div>
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**EJEMPLO DE SCRIPT R**
+
+</div>
+</div>
+
+## {.flexbox .vcenter}
+<div class="black">
+<div class="centered">
+**Práctica con R y Rstudio**
+
+**_Clase 2 – Programación con R_**
+</div>
+</div>
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**EXPLORAR R STUDIO CLOUD**
+
+</div>
+</div>
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**EXPLORAR R STUDIO**
+
+</div>
+</div>
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**TRABAJO EN SALAS**
+
+</div>
+</div>
+
+<div class="black">
+**1).** **Guía de trabajo programación con R disponible en drive.**
+
+**2).** **La tarea se realiza en Rstudio.cloud**. Ingresa al siguiente proyecto de **[Rstudio.Cloud](https://rstudio.cloud/spaces/135178/project/2447826/)** 
+
+</div>
+
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**RESUMEN DE LA CLASE**
+
+</div>
+</div>
+
+<div class="black">
+
+* Paradigma de la investigación reproducible.
+
+* Ruta del análisis de datos reproducible con **R**.
+
+* Iniciamos un proyecto de análisis de datos.
+
+* Escribimos un código de programación con **R** y **Rstudio cloud**.
+
+* Nos familiarizamos con la manipulación de objetos.
+
+</div>
+
