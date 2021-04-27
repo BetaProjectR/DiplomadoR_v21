@@ -159,6 +159,9 @@ La principal conclusión de esta investigación es que si bien el **bloom de alg
 
 </div>
 </div>
+<div class="columns-1">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Investigación reproducible.JPG)
+</div>
 
 ## 
 <div class="centered">
