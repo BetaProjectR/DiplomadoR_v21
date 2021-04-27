@@ -98,7 +98,7 @@ Extrae variables de un objeto tipo dataframe
 Función genérica usada para resumir datos de un objeto   
 **summary()**    
 
-Función genérica de la librería base para generar gráficos x-y  
+Función genérica de la librería **base** para generar gráficos x-y  
 **plot(x~y)**  
 
 
@@ -110,9 +110,9 @@ Abre el archivo script_example.R y familiarízate con la estructura de un *scrip
 
 ### **Ejercicio 2.** **Crea tu propio script**
 
-**a).** Ahora, crea tu propio *script* usando la barra de herramientas de Rstudio. Selecciona **File > New file > R script**. Guarda inmediatamente este script como **script_1_nombre_apellido**. Esto, es importante porque al finalizar la actividad deberás exportar el *script* y almacenarlo en tu carpeta drive **[TAREAS_RSTUDIO](https://drive.google.com/drive/u/1/folders/1z2UII97VXSeyfsT15ZVTBhh7DtBn2Dm2).**
+**a).** Ahora, crea tu propio *script* usando la barra de herramientas de **Rstudio**. Selecciona **File > New file > R script**. Guarda inmediatamente este script como **script_1_nombre_apellido**. Esto, es importante porque al finalizar la actividad deberás exportar el *script* y almacenarlo en tu carpeta drive **[TAREAS_RSTUDIO](https://drive.google.com/drive/u/1/folders/1z2UII97VXSeyfsT15ZVTBhh7DtBn2Dm2).**
 
-**b).** Crea los metadatos de tu *script* siguiendo el ejemplo anterior y haciendo referencia a la **tarea 1** y como primera tarea remueve los objetos de la sesión de trabajo usando **rm(list = ls()).**
+**b).** Crea los metadatos de tu *script* siguiendo el ejemplo anterior y haciendo referencia a la **tarea 1** y como primera tarea remueve los objetos de la sesión de trabajo usando **rm(list = ls())**.
 
 ### **Ejercicio 3.** **Trabajando con vectores** 
 
