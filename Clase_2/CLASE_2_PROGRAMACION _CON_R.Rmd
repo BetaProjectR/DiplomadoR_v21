@@ -71,15 +71,11 @@ knitr::opts_chunk$set(echo = FALSE)
 <div class="columns-2">
 ![](C:/Users/angel/Google Drive/Chile_2021/Diplomados_2021/Diplomado Primer cuatrimestre_2021/CLASES_GITHUB/Imagenes_PPT/CLASE2/ALGAS1.png)
 
-
-
 <div class="black">
 <div class="centered">
-
-**CONSECUENCIAS ACUICULTURA**
+**_CONSECUENCIAS ACUICULTURA_**
 </div>
 </div>
-
 <div class="black">
 **Acuicultura**
 
