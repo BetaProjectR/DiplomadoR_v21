@@ -5,6 +5,9 @@ author:
 date: "15/4/2021"
 output:
   ioslides_presentation:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
     template: quarterly_report.html
   beamer_presentation: default
 subtitle: CLASE 1 PRESENTACIÓN
@@ -22,13 +25,13 @@ knitr::opts_chunk$set(echo = FALSE)
 </div>
 
 <div class="blue">
-**1).** Palabras de Bienvenida.
+**1).** **Palabras de Bienvenida**.
 
-**2).** Presentación de los participantes.
+**2).** **Presentación de los participantes**.
 
-**3).** Programa del curso.
+**3).** **Programa del curso**.
 
-**4).** Habilitar recursos de aprendizaje.
+**4).** **Habilitar recursos de aprendizaje**.
 </div>
 
 
@@ -39,14 +42,24 @@ knitr::opts_chunk$set(echo = FALSE)
 </div>
 </div>
 
+<div class="columns-2">
+
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Fotojose.png)
+
 <div class="black">
 **Dr. José Gallardo**
 Profesor adjunto PUCV
 Doctor en Ciencias
+</div> 
 
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Fotoangelica.png)
+
+<div class="black">
 **Dr. María Angélica Rueda**
 Investigadora PUCV
 Doctor en Ciencias Agropecuarias
+</div>
+</div>
 </div>
 
 ## {.flexbox .vcenter}
@@ -55,7 +68,6 @@ Doctor en Ciencias Agropecuarias
 **PRESENTACIÓN Y REVISIÓN DEL PROGRAMA DEL CURSO**
 </div>
 </div>
-
 
 ##
 <div class="lefted">
@@ -66,13 +78,17 @@ Doctor en Ciencias Agropecuarias
 
 ###
 <div class="black">
+<div style="text-align: justify">
 El **_Diplomado en análisis de datos con R para la acuicultura_** tiene como propósito que los estudiantes desarrollen habilidades para llevar a cabo un proyecto de análisis de datos e investigación reproducible en acuicultura usando el lenguaje de programación **R**. 
-
 
 * **Bioestadística.**
 * **Programación en R.**
 </div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Prerrequisitos.png)
 
+</div>
 
 ##
 <div class="lefted">
@@ -82,6 +98,7 @@ El **_Diplomado en análisis de datos con R para la acuicultura_** tiene como pr
 </div>
 
 <div class="black">
+<div style="text-align: justify">
 
 **Presentación del diplomado y evaluación diagnóstica**
 
@@ -101,7 +118,7 @@ Martes y jueves de 19:00 - 21:00 P.M.
 
 **Cierre del diplomado y entrega de certificados de aprobación**
 Jueves 12 de agosto -19:00 - 20:00 P.M.
-
+</div>
 
 ##
 <div class="lefted">
@@ -137,6 +154,7 @@ PROYECTO PERSONAL Y ANÁLISIS DE DATOS CON **R**.
 </div>
 </div>
 <div class="black">
+<div style="text-align: justify">
 **1).** **Tareas de autoaprendizaje:** Número variable de tareas de autoaprendizaje asignadas por el profesor mediante la plataforma **[DataCamp](https://www.datacamp.com/)**.
 
 **2).** **Tareas de evaluación de competencias:** Cuatro tareas de resolución de problemas o ejercicios en forma individual, una para cada unidad.
