@@ -15,7 +15,7 @@ Este script contiene toda la información necesaria para generar un reporte din�
 
 ## Markdown
 
-Este texto que usted lee ahora se denomina markdown y puede modificarlo a voluntad cuando escriba un reporte, agregando todo tipo de formatos, así como tablas, listas, parrafos o referencias. 
+Este texto que usted lee ahora se denomina markdown y puede modificarlo a voluntad cuando escriba un reporte, agregando todo tipo de formatos, así como tablas, listas, párrafos o referencias. 
 
 **Viñetas y listas numeradas**
 
@@ -29,39 +29,39 @@ Este texto que usted lee ahora se denomina markdown y puede modificarlo a volunt
 
 **Escribir en negrita o cursiva**
 
-    **negrita** *curviva*
-**negrita** *curviva*
+    **negrita** *cursiva*
+**negrita** *cursiva*
     
     
 **Crear tablas**
 
-    variable A | Variable B
+    Variable A | Variable B
     -- | --
     Campo A1 | Campo B1
     Campo A2 | Campo B2
     
-variable A | Variable B
+Variable A | Variable B
 -- | --
 Campo A1 | Campo B1
 Campo A2 | Campo B2
 
 ## Bloques de código o chunk
 
-La principal diferencia de Markdown con RMarkdown es obviamente la posibilidad de incluir códigos de R para analizar datos. Esto se consigue agregando bloques de códigos como el que se muestra a continuación. Observe con detención que el bloque de códigos comienza y termina con 3 tildes invertidas ``` y que al inicio hay una r entre dos {} lo que indica al software que es un código de R. este primer bloque es para configurar el resto de los bloques de código, por eso se ha incluido un nombre **setup**. En este primer **chunk** puede ver el llamado a ejecutar la librería **knitr**. Investigue la utilidad de los argumentos adicionales como  *include=FALSE* y *echo = TRUE*
+La principal diferencia de Markdown con RMarkdown es obviamente la posibilidad de incluir códigos de R para analizar datos. Esto se consigue agregando bloques de códigos como el que se muestra a continuación. Observe con detención que el bloque de códigos comienza y termina con 3 tildes invertidas **```** y que al inicio hay una r entre dos **{}** lo que indica al software que es un código de **R**. Éste primer bloque es para configurar el resto de los bloques de código, por eso se ha incluido un nombre **setup**. En este primer **chunk** puede ver el llamado a ejecutar la librería **knitr**. Investigue la utilidad de los argumentos adicionales como  **include=FALSE** y **echo=TRUE**.
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Cuando trabajes con bloques de códigos para analizar tus datos, también puedes agregar el nombre del bloque del código, en este caso BOD. 
+Cuando trabajes con bloques de códigos para analizar tus datos, también puedes agregar el nombre del bloque del código, en este caso **BOD**. 
 
-Mientras que para ejecutar este código debes presionar la punta de flecha verde que se observa en la parte superior derechs del mismo bloque de códigos.
+Mientras que para ejecutar este código, debes presionar **la punta de la flecha verde** que se observa en la parte superior derecha del mismo bloque de códigos.
 
 ```{r BOD}
 summary(BOD)
 ```
 
-También puede inclui gráficas en sus bloques de código.
+También puede incluir gráficas en sus bloques de código.
 
 ```{r plot BOD, echo=FALSE, fig.cap="Figura 1. Demanda biológica de oxígeno en función del tiempo"}
 
@@ -72,7 +72,7 @@ plot(BOD$demand~BOD$Time)
 
 ### Elaborar un reporte
 
-Finalmente, para poder generar un reporte debes presionar el **triangulo negro** que está junto a la palabra **Knit** en la parte superior de este documento. Si presionas **Knit to HTML**, esto indicará a la librería **knitr** que debe leer el presente documento, interpretar y ejecutar el metadata, el texto de bajo nivel y los diferentes bloques de código.
+Finalmente, para poder generar un reporte debes presionar el **triángulo negro** que está junto a la palabra **Knit** en la parte superior de este documento. Si presionas **Knit to HTML**, esto indicará a la librería **knitr** que debe leer el presente documento, interpretar y ejecutar el metadata, el texto de bajo nivel y los diferentes bloques de código.
 
 Para finalizar, pruebe generar dos reportes adicionales uno en formato pdf y otro en formato word. Compare los documentos e identifique sus diferencias.
 
