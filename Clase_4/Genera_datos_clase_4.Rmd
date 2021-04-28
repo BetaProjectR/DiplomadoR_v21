@@ -1,0 +1,171 @@
+---
+title: "Guía de trabajo variables cuantitativas continuas"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: Pontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: hide
+---
+
+<style>
+#TOC {
+  color: black;
+  font-familiy: Calibri;
+  font-size: 14px;
+  border-color: #708090; 
+}
+body {
+   color: black;
+   font-familiy: Calibri;
+}
+
+pre {
+  color: black;
+  background-color: #F8F8FF;
+}
+# header {
+  color: #800000;
+  font-familiy: Calibri;
+  background-color: #F5F5F5;
+  opacity: 0.8;
+  font-size: 16px;
+}
+</style>
+
+#### **Introducción**
+
+**¿Cuál es la diferencia entre variable y dato?**
+
+Las **Variables** son las características que se pueden medir en un individuo o en un ambiente y los **datos** son los valores que puede tomar una variable o las mediciones que se hace de las características de un individuo o su ambiente.
+
+**¿Qué es una variable aleatoria?**
+
+Es una variable cuyo valor se determina por el azar. Las variables aleatorias se representan por letras mayúsculas (X) y sus valores numéricos por letras minúsculas (xi).
+
+
+#### **Objetivos de aprendizaje**
+
+Los objetivos de aprendizaje de esta guía son:
+
+**1**. Iniciar un proyecto de análisis de datos y escribir un código de programación o **_script_** con **[Rmarkdown](https://rmarkdown.rstudio.com/)**.
+
+**2**. Buscar, instalar y habilitar librerías.
+
+**3**. Elaborar reportes dinámicos con **Rmarkdown**.
+
+  
+#### **Clasificación de variables cuantitativas**
+
+|  Tipo de variable | Descripción       |
+|:-------------|:------------------|
+| **Variables discretas:** | Una variable *Y* es discreta si puede tomar valores puntales, pueden tener un número finito o infinito de valores. |
+| **Variables continuas:** | Una variable *Y* es continua si puede tomar cualquier valor dentro de un intervalo del conjunto de los números reales. La probabilidad de que tome un valor cualquiera es 0 debido a que existe un número infinito de posibilidades en el intervalo. |
+
+
+#### **Clasificación de variables cualitativas o categóricas**
+
+|  Tipo de variable | Descripción |
+|:-------------|:------------------|
+| **Variables nominales**| Sus valores representan categorías que no obedecen a una clasificación intrínseca. |
+| **Variables ordinales** | Sus valores representan categorías con alguna clasificación intrínseca. |
+
+### DISTRIBUCION DE UNA VARIABLE
+
+Distribución empírica (observación): Los datos de una muestra, obtenidos de ofrma aleatoria de una población pueden ser usados para observar su comportamiento o distribución. 
+
+Distribución de probabilidad (predicción): Las variables aleatorias tienen diferentes distribuciones de probabilidad subyasentes lo que nos permite predecir su comportamiento y realizar inferencia estadística.
+
+Distribución normal: Las variables cuantitativas contínuas siguen una distribución normal.
+
+#### **¿Cómo puedo observar y predecir el comportamiento de una variable?**
+
+**Funciones clave**
+
+1.- Tabla de distribución de frecuencia  
+**table()**  
+2.- Histograma  
+**hist()**  
+3.- Gráfica x-y de puntos "p", lineas "l" o ambas "b".  
+**plot()**  
+4.- Gráfica de cajas y bigotes  
+**boxplot()**  
+5.- Mediante una función de densidad empírica  
+**density()**  
+6.- Mediante una función de distribución acumulada empírica  
+**ecdf()**  
+
+#### **¿Qué puedo medir de una variable aleatoria continua?**
+
+1.- Medias de tendencia central: media y medianda. 
+**mean()**, **median()**. 
+2.- Medidas de dispersión: varianza, desviación estandar.
+**var()**, **sd**
+3.- Concentración de datos en cuantiles.  
+**quantile()**  
+
+#### Librerías a usar en esta guía
+  
+**{stat}** , **{graphics}**, **{readxl}**
+
+## **Ejercicios**
+
+### **Ejercicio 1.** **Elaborar archivo Rmarkdown**
+
+Elabore un archivo o file con extensión **.Rmd** y configurelo para exportar el resultado como un documento dinámico **pdf**. Utilice el siguiente ejemplo para completar la información de **metadatos**: Título: Reporte variables continuas, nombre del autor: Su nombre.
+
+Luego guarde inmediatamente su script como **script_3_nombre_apellido.Rmd**. Al finalizar la actividad deberá exportar y almacenar este **_script_** en su carpeta drive de tareas.
+
+### **Ejercicio 2.** **Configuración del reporte**
+
+En el primer bloque de códigos o **chunk** configure los comandos de la siguiente manera *knitr::opts_chunk$set(echo = TRUE)* y cargue las librerías **readxl**, **stats** y **graphics** usando la función library().
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(stats)
+library(graphics)
+```
+
+
+**Ejercicio 3.** **Borrar información de la plantilla**
+
+Borre los bloques de códigos R que se generan automáticamente con cada archivo .Rmd y reemplacelos por nuevos bloques de códigos con el botón verde **+C** que se encuentra en la parte superior del panel de códigos. 
+
+Ejecute cada uno de los siguientes ejercicios en uno o más bloques de códigos diferentes. Sea ordenado y documente su reporte adecuadamente.
+
+### **Ejercicio 4.** **Importar y explorar datos** 
+
+Importe el set de datos **shrimp** usando la función *read_excel()* de la librería *readxl*. Explore el set de datos usando las funciones *summary()* y *str()*.
+
+```{r, echo=FALSE}
+# Generar una muestra 
+set.seed(123)
+shrimp <- data.frame(round(rnorm(50, 20, 5), 1))
+colnames(shrimp) <- "Weight 1"
+write.table(shrimp, file = "shrimp.csv", sep = " ", dec = ".", row.names = FALSE, col.names = TRUE)
+
+set.seed(123)
+shrimp2 <- data.frame(round(rnorm(200, 20, 5), 1))
+colnames(shrimp2) <- "Weight 2"
+write.table(shrimp2, file = "shrimp2.csv", sep = " ", dec = ".", row.names = FALSE, col.names = TRUE)
+
+
+```
+
+
+b) Usando esta plantilla, elabore una presentación con el análisis de datos de las librerías **_rivers_** y **_BOD_** que realizó en la clase 2.
+
+Incluya lo que usted estime que sea de importancia y utilidad para presentar. De ser necesario instale librerías, añada más diapositivas o bloques de código.
+
+Use esta [Hoja de referencia](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-spanish.pdf) como ayuda para elaborar reportes Rmarkdown.
+
+Use está guía de sintaxis de **Markdown** para mejorar el estilo de sus documentos [Rmarkdown](https://rstudio-pubs-static.s3.amazonaws.com/330387_5a40ca72c3b14824acedceb7d34618d1.html) 

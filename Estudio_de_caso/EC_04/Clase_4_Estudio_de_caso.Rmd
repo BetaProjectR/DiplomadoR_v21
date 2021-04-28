@@ -1,0 +1,94 @@
+---
+title: "Clase 4 Estudio de caso"
+author: Dr. José A. Gallardo | Pontificia Universidad Católica de Valparaíso | email <jose.gallardo@pucv.cl> 
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: beamer_presentation
+subtitle: Diplomado en Análisis de datos con R para la acuicultura.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## ESTUDIO DE CASO 1: Identificar conceptos.
+
+**En grupo: Identifique según corresponda los siguientes conceptos**
+
+A.	Variable
+B.	Variable aleatoria
+C.	Variables cuantitativas discretas.
+D.	Variables cuantitativas continuas.
+E.	Variable categórica nominal
+F.	Variable categórica ordinal.
+
+Responda en el documento compartido llamado *Clase 4 Actividad de aprendizaje* disponible en el  Drive del curso.
+
+## ESTUDIO DE CASO 2: Identificar variables aleatorias.
+
+A continuación se reportan resultados de varios estudios de análisis de datos de acuicultura. 
+
+**Responda cada pregunta para el estudio de caso asignado a su grupo**
+
+1.- ¿Cuál es la/las variable/s en estudio?  
+2.- ¿Que tipo de variable/s aleatoria es/son?  
+3.- ¿Tienen distribución normal?  
+
+Responda en el documento compartido llamado *Clase 4 Actividad de aprendizaje* disponible en el  Drive del curso.
+
+## Grupo 1
+
+- Tesis enfermedades del Camarón *Litopenaeus vannamei*. Rodriguez, 2016.
+
+```{r, echo=FALSE, out.width = '100%' }
+knitr::include_graphics("Casos_positivos_Shrimp.png")
+```
+
+## Grupo 2
+
+- Informe etiología e Identificación de Cataratas. INTESAL, 2014.
+
+```{r, echo=FALSE, out.width = '55%' }
+knitr::include_graphics("Cataratas_salmon.png")
+```
+
+## Grupo 3
+
+- Paper marcador genético asociada al sexo en camarón Tigre *Penaeus monodon*. Robinson, 2014
+
+```{r, echo=FALSE, out.width = '90%' }
+knitr::include_graphics("Genotipos_Tiger_Shrimp.png")
+```
+
+## Grupo 4
+
+- Paper efecto de coinfección en mortalidad de salmon del Atlántico. Lhorente, 2014
+
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("Mortalidad_coinfecion.png")
+```
+
+## Grupo 5
+
+- Paper biorremediación por poliquetos en sistema RAS. Gomez, 2018.
+
+```{r, echo=FALSE, out.width = '90%' }
+knitr::include_graphics("Biorremediacion.png")
+```
+
+
+## Grupo 6
+
+- Paper infestación de salmón con caligus. Araya, 2012.
+
+```{r, echo=FALSE, out.width = '100%' }
+knitr::include_graphics("Caligus.png")
+```
+
+
+## Grupo 7
+
+- Paper Predicción del Oxigeno disuelto en "China Ponds". Li, 2018.
+
+```{r, echo=FALSE, out.width = '90%' }
+knitr::include_graphics("DO_serie.jpg")
+```

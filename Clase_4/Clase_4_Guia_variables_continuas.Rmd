@@ -1,0 +1,266 @@
+---
+title: "Guía de trabajo variables cuantitativas continuas"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: Pontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: hide
+  word_document: default
+  pdf_document: default
+---
+
+<style>
+#TOC {
+  color: black;
+  font-familiy: Calibri;
+  font-size: 14px;
+  border-color: #708090; 
+}
+body {
+   color: black;
+   font-familiy: Calibri;
+}
+
+pre {
+  color: black;
+  background-color: #F8F8FF;
+}
+# header {
+  color: #800000;
+  font-familiy: Calibri;
+  background-color: #F5F5F5;
+  opacity: 0.8;
+  font-size: 16px;
+}
+</style>
+
+#### **Introducción**
+
+**¿Cuál es la diferencia entre variable y dato?**
+
+Las **variables** son las características que se pueden medir en un individuo o en un ambiente y los **datos** son los valores que puede tomar esa variable.
+
+**¿Qué es una variable aleatoria?**
+
+Es una variable cuyo valor se determina por el azar. Las variables aleatorias se representan por letras mayúsculas (X) y sus valores numéricos por letras minúsculas (xi).
+
+
+#### **Objetivos de aprendizaje**
+
+Los objetivos de aprendizaje de esta guía son:
+
+**1**. Observar y predicer una variable aleatoria continua con distribución normal.
+
+**2**. Elabora un reporte dinámico en formato pd.
+
+  
+#### **Clasificación de variables cuantitativas**
+
+|  Tipo de variable | Descripción       |
+|:-------------|:------------------|
+| **Variables discretas:** | Una variable *Y* es discreta si puede tomar valores puntales, pueden tener un número finito o infinito de valores. |
+| **Variables continuas:** | Una variable *Y* es continua si puede tomar cualquier valor dentro de un intervalo del conjunto de los números reales. La probabilidad de que tome un valor cualquiera es 0 debido a que existe un número infinito de posibilidades en el intervalo. |
+
+
+#### **Clasificación de variables cualitativas o categóricas**
+
+|  Tipo de variable | Descripción |
+|:-------------|:------------------|
+| **Variables nominales**| Sus valores representan categorías que no obedecen a una clasificación intrínseca. |
+| **Variables ordinales** | Sus valores representan categorías con alguna clasificación intrínseca. |
+
+### DISTRIBUCION DE UNA VARIABLE
+
+Distribución empírica (observación): Los datos de una muestra, obtenidos de forma aleatoria de una población pueden ser usados para observar su comportamiento o distribución. 
+
+Distribución de probabilidad (predicción): Las variables aleatorias tienen diferentes distribuciones de probabilidad subyasentes lo que nos permite predecir su comportamiento y realizar inferencia estadística.
+
+Distribución normal: Las variables cuantitativas contínuas siguen una distribución normal.
+
+#### **¿Cómo puedo observar y predecir el comportamiento de una variable?**
+
+**Funciones clave**
+
+1.- Tabla de distribución de frecuencia  
+**table()**  
+2.- Histograma  
+**hist()**  
+3.- Gráfica x-y de puntos "p", lineas "l" o ambas "b".  
+**plot()**  
+4.- Gráfica de cajas y bigotes  
+**boxplot()**  
+5.- Mediante una función de densidad empírica  
+**density()**  
+6.- Mediante una función de distribución acumulada empírica  
+**ecdf()**  
+
+#### **¿Qué puedo medir de una variable aleatoria continua?**
+
+1.- Medias de tendencia central: media y medianda. 
+**mean()**, **median()**. 
+2.- Medidas de dispersión: varianza, desviación estandar.
+**var()**, **sd**.  
+3.- Concentración de datos en cuantiles.    
+**quantile()**  
+
+#### Librerías a usar en esta guía
+  
+**{stat}** , **{graphics}**, **{readxl}**
+
+## **Ejercicios**
+
+### **Ejercicio 1.** **Elaborar archivo Rmarkdown**
+
+Elabore un archivo o file con extensión **.Rmd** y configurelo para exportar el resultado como un documento dinámico **pdf**. Utilice el siguiente ejemplo para completar la información de **metadatos**: Título: Reporte variables continuas, nombre del autor: Su nombre.
+
+Luego guarde inmediatamente su script como **script_3_nombre_apellido.Rmd**. Al finalizar la actividad deberá exportar y almacenar este **_script_** en su carpeta drive de tareas.
+
+### **Ejercicio 2.** **Configuración del reporte**
+
+En el primer bloque de códigos o **chunk** configure los comandos de la siguiente manera *knitr::opts_chunk$set(echo = TRUE)* y cargue las librerías **readxl**, **stats** y **graphics** usando la función library().
+
+```{r setup, include=TRUE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readxl)
+library(stats)
+library(graphics)
+```
+
+
+### **Ejercicio 3.** **Borrar información de la plantilla**
+
+Borre los bloques de códigos R que se generan automáticamente con cada archivo .Rmd y reemplacelos por nuevos bloques de códigos con el botón verde **+C** que se encuentra en la parte superior del panel de códigos. 
+
+Ejecute cada uno de los siguientes ejercicios en uno o más bloques de códigos diferentes. Sea ordenado y documente su reporte adecuadamente.
+
+### **Ejercicio 4.** **Importar y explorar datos** 
+
+Cree un objeto llamado **dat** e importe el set de datos **shrimp** usando la función *read_excel()* de la librería *readxl*. Explore el set de datos usando las funciones **head()**, **tail**, **summary()** y **str()**.
+
+```{r}
+dat <- read_excel("shrimp.xlsx")
+head(dat)
+tail(dat)
+summary(dat)
+str(dat)
+```
+
+### **Ejercicio 5.** **Correción de variables**
+
+Note que en el ejercicio anterior la variable **weight** fueron erradamente codificadas como caracter o texto (chr) en ves de número. Use la función **as.numeric()** para correguir este error. Vuelva a ejecutar los comandos **summary()** y **str()** para comprobar que las variables están adecuadamente codificadas.
+
+```{r}
+dat$Weight <- as.numeric(dat$Weight)
+summary(dat)
+str(dat)
+```
+
+
+### **Ejercicio 6.** **Observar el comportamiento de una variable**
+
+A partir del set de datos **shrimp** elabore un histograma y un boxplot de la variable cuantitativa continua **weight**. Use las funciones **hist()**, **boxplot()**. 
+
+Use este comando **par(mfrow=c(1,2))** para unir las gráficas en un solo panel con dos columnas.
+
+Investigue que representa el circulo que aparece en el Boxplot.
+
+```{r}
+par(mfrow=c(1,2))
+
+hist(dat$Weight, col="light blue", main = "Histograma weight", xlab = "weight (g)")
+
+boxplot(dat$Weight, col="light blue", main = "Boxplot weight", ylab = "weight (g)")
+
+
+```
+
+### **Ejercicio 6.** **Métricas del set de datos shrimp**
+
+Calcule las siguientes métricas del set de datos: promedio, desviación estandar, rango y cuantiles.
+
+```{r}
+mean(dat$Weight)
+sd(dat$Weight)
+range(dat$Weight)
+quantile(dat$Weight)
+```
+
+### **Ejercicio 7.** **Función de densidad**
+
+Usando la función plot() elabore:
+
+a) Gráfica con la densidad empírica. Debe incluir la función density() dentro de plot.
+
+```{r}
+# Densidad empírica.
+plot(density(dat$Weight), main="Densidad empírica", xlab="Weight (g)")
+```
+
+b) Gráfica con la distribución acumulada empírica. Debe incluir la función ecdf() dentro de plot.
+
+```{r}
+# Distribución acumulada empírica.
+plot(ecdf(dat$Weight), main="Distribución acumulada empírica", xlab="Weight (g)")
+```
+
+### **Ejercicio 8.** **Crear una función y predecir datos observados**
+
+Utilice la función de distribución acumulada empírica **ecdf()** para determinar que proporción de camarones es menor a 20 g, y que proporción es mayor de 30 g:
+
+a) Primero cree una función de distribución acumulada empírica para los datos del peso de sus camarones.
+```{r}
+Fn <- ecdf(dat$Weight)
+Fn
+```
+
+a) Calcule la proporción de camarones menores de 20 g.
+```{r}
+# Fn(x) returns the percentiles for x
+paste0(Fn(20)*100, "%") 
+```
+
+c) Calcule la proporción de camarones mayor a 30 g.
+
+```{r}
+# 1- Fn(x) returns 1 - the percentiles for x
+paste0(((1 - Fn(30))*100), "%")
+```
+
+### **Ejercicio 9.** **Proporción de datos en torno a la media**
+
+En la siguiente figura, la linea roja representa 1 ds sobre y bajo la media, la linea azul representa la media. 
+
+```{r, echo=FALSE}
+plot(density(dat$Weight), main="Densidad empírica", xlab="Weight (g)")
+abline(v=19.958 + 4.710923, col="red", lwd=2)
+abline(v=19.958 - 4.710923, col="red", lwd=2)
+abline(v=19.958, col="blue", lwd=2)
+```
+
+¿Que proporción de los datos está contenido entre una desviación estandar hacia arriba y hacia abajo de la media?.
+
+a) Calcule la proporción de datos 1 desviación estandar sobre la media.
+```{r}
+p1 <- 1 - Fn(19.958 + 4.710923)
+p1
+```
+
+b) Calcule la proporción de datos 1 desviación estandar bajo la media.
+```{r}
+p2 <- Fn(19.958 - 4.710923)
+p2
+```
+
+c) Calcule la proporción de datos entre 1 desviación estandar arriba y abajo de la media multiplicado por 100.
+
+```{r}
+paste0(((1 - (p1 + p2))*100),"%")
+# Este valor es muy cercano al 68% teórico de una variable con distribución normal.
+```
