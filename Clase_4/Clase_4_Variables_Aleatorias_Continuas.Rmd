@@ -5,6 +5,8 @@ author: Dr. José A. Gallardo  |  <jose.gallardo@pucv.cl>  |  Pontificia Univers
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   ioslides_presentation:
+    pdf_document:
+    latex_engine: xelatex
     fig_width: 7
     fig_height: 6
     fig_caption: true
