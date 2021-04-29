@@ -7,13 +7,14 @@ author:
  email: <jose.gallardo@pucv.cl>
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
-  pdf_document: default
-  word_document: default
   html_document:
     toc: true
     toc_float: true
     toc_depth: 3
     code_folding: hide
+  word_document: default
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 <style>
@@ -108,13 +109,18 @@ Los objetivos de aprendizaje de esta guía son:
 
 #### **¿Qué puedo medir de una variable aleatoria continua?**
 
-**1.-** **_Medidas de tendencia central_**: media y mediana. 
-**mean()**, **median()**. 
+**Funciones clave**
 
-**2.-** **_Medidas de dispersión_**: varianza, desviación estándar.
-**var()**, **sd()**.
+**1.-** **_Medidas de tendencia central_**: 
+
+media **mean()** y mediana **median()**. 
+
+**2.-** **_Medidas de dispersión_**: 
+
+varianza **var()**, desviación estándar  **sd()**.
 
 **3.-** **_Concentración de datos en cuantiles_**.    
+
 **quantile()**.  
 
 #### **Librerías a usar en esta guía**
