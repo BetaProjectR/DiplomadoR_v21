@@ -1,0 +1,133 @@
+---
+title: "Clase 5 Variables aleatorias Discretas"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: Pontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  ioslides_presentation:
+    template: quarterly_report.html
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+<div class="centered">
+<div class="black">
+**PLAN DE CLASE**
+</div>
+</div>
+
+<div class="black">
+**1).** **Introducción**
+
+- **Preguntas al curso.**
+
+- **Estudio de caso.**
+
+**2).** **Práctica con R y Rstudio cloud**
+
+- **Observa y predice el comportamiento de variables aleatorias discretas (Binomial y Bernoulli).**
+
+- **Escribir un código de programación** o **_script_**
+
+- **Elaborar un reporte html con Rmarkdown.**
+
+</div>
+## {.flexbox .vcenter}
+<div class="black">
+<div class="centered">
+**Introducción**
+
+**_Clase 5 – Variables discretas_**
+</div>
+</div>
+## 
+<div class="centered">
+<div class="black">
+**PREGUNTAS AL CURSO**
+</div>
+</div>
+
+<div class="black">
+**1).** **¿ Por qué es importante analizar variables discretas?**
+
+**2).** **¿ Has tenido que analizar este tipo de variables alguna vez?**
+
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+**ESTUDIO DE CASO:** 
+</div>
+
+
+##
+<div class="black">
+<div class="centered">
+**TRABAJO EN GRUPO**
+</div>
+
+<div class="black">
+
+**¿Cuál fue la variable en estudio?**
+
+
+**¿Qué tipo de distribución usaron?**
+
+
+**¿Qué software se utilizó para los análisis?**
+
+
+**¿Qué test estadístico se utilizó y cuál fue su significancia?**
+
+
+**¿Podría usted llegar a la misma conclusión del reporte con la información disponible?**
+</div>
+
+
+## 
+<div class="centered">
+<div class="black">
+
+**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BERNOULLI**
+
+</div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Bernoulli.png)
+
+</div>
+
+## {.flexbox .vcenter}
+<div class="centered">
+<div class="black">
+
+**SIMULAR VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BERNOULLI**
+
+</div>
+</div>
+
+<div class="black">
+<div class="centered">
+VENENO PARALIZANTE DE LOS MARISCOS (VPM)
+</div>
+<div class="centered">
+Producido en Chile por una microalga llamada Alexandrium catenella.
+</div>
+<div class="columns-2">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+
+Intoxicaciones por VPM en Chile 1972-2002
+456 enfermos, 30 fallecidos (total = 486)
+Letalidad= 30 / 486 = 0.0617
+
+</div>
+</div>
