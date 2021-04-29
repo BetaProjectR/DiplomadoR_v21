@@ -7,13 +7,13 @@ author:
  email: <jose.gallardo@pucv.cl>
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  pdf_document: default
+  word_document: default
   html_document:
     toc: true
     toc_float: true
     toc_depth: 3
     code_folding: hide
-  word_document: default
-  pdf_document: default
 ---
 
 <style>
