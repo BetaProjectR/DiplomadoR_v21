@@ -4,12 +4,11 @@ author:
   name: Dr. José A. Gallardo.
 date: "15/4/2021"
 output:
-  ioslides_presentation:
-    fig_width: 7
-    fig_height: 6
-    fig_caption: true
-    template: quarterly_report.html
+  pdf_document:
+    latex_engine: xelatex
   beamer_presentation: default
+  ioslides_presentation:
+    template: quarterly_report.html
 subtitle: CLASE 1 PRESENTACIÓN
 ---
 
@@ -48,7 +47,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <div class="black">
 **Dr. José Gallardo**
+
 Profesor adjunto PUCV
+
 Doctor en Ciencias
 </div> 
 
@@ -56,7 +57,9 @@ Doctor en Ciencias
 
 <div class="black">
 **Dr. María Angélica Rueda**
+
 Investigadora PUCV
+
 Doctor en Ciencias Agropecuarias
 </div>
 </div>
@@ -178,12 +181,21 @@ PROYECTO PERSONAL Y ANÁLISIS DE DATOS CON **R**.
 **CORREO MAIL PUCV**
 </div>
 </div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/correopucv.png)
+
+</div>
 
 ##
 <div class="lefted">
 <div class="blue">
 **FORO DE PREGUNTAS - SLACK**
 </div>
+</div>
+
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Slack.png)
+
 </div>
 
 ##
@@ -193,11 +205,20 @@ PROYECTO PERSONAL Y ANÁLISIS DE DATOS CON **R**.
 </div>
 </div>
 
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Cuentadatacamp.png)
+
+</div>
+
 ##
 <div class="lefted">
 <div class="blue">
 **CUENTA EN R STUDIO CLOUD:** **_PRÓXIMO MARTES_**
 </div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/Rstudiocloud.png)
+
 </div>
 
 ##
@@ -207,4 +228,7 @@ PROYECTO PERSONAL Y ANÁLISIS DE DATOS CON **R**.
 </div>
 </div>
 
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase1/tareasemana1.png)
 
+</div>

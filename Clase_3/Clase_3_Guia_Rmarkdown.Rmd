@@ -5,16 +5,16 @@ author:
  name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
  affiliation: Pontificia Universidad Católica de Valparaíso
  email: <jose.gallardo@pucv.cl>
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: "22/04/2021"
 output:
-  pdf_document:
-    latex_engine: xelatex
-  word_document: default
   html_document:
     toc: true
     toc_float: true
     toc_depth: 3
     code_folding: hide
+  word_document: default
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 <style>
