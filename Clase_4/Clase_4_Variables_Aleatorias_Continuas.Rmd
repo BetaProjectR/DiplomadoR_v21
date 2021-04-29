@@ -1,0 +1,141 @@
+---
+title: "Clase 4 Variables Aleatorias Continuas"
+author: Dr. José A. Gallardo  |  <jose.gallardo@pucv.cl>  |  Pontificia Universidad
+  Católica de Valparaíso
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  ioslides_presentation:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    template: quarterly_report.html
+  beamer_presentation: default
+subtitle: Diplomado en Análisis de datos con R para la acuicultura.
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(MASS)
+library(psych)
+```
+
+## PLAN DE LA CLASE
+**1.- Introducción**
+
+- Estudio de caso: Identificar variables aleatorias.
+- Clasificación de variables aleatorias.
+- Observar una variable cuantitativa continua.
+- Predecir una variable cuantitativa continua.
+
+**2.- Práctica con R y Rstudio cloud**
+
+- Observa y predice una variable aleatoria continua con distribución normal.
+- Elabora un reporte dinámico en formato pdf.
+
+## ESTUDIO DE CASO 1: Identificar conceptos.
+**En grupo: Identifique los siguientes conceptos**
+
+Conceptos de variables
+
+A.	Variable.
+B.	Variable aleatoria.
+C.	Variables cuantitativas discretas.
+D.	Variables cuantitativas continuas.
+E.	Variable categórica nominal
+F.	Variable categórica ordinal.
+
+## ESTUDIO DE CASO 2: Identificar variables aleatorias.
+**En grupo: Identifique que tipo de variables se reportan en los siguientes documentos**
+
+- **Grupo 1** Tesis enfermedades del camarón *Litopenaeus vannamei*.  
+- **Grupo 2** Informe etiología e Identificación de Cataratas.  
+- **Grupo 3** Paper marcador genético asociada al sexo en camaron Tigre *Penaeus monodon*.  
+- **Grupo 4** Paper efecto de coinfección en mortalidad de salmon del Atlántico.   
+- **Grupo 5** Paper biorremediación por poliquetos en sistema RAS.   
+- **Grupo 6** Paper infestación de salmón con caligus.   
+- **Grupo 7** Paper predicción del Oxigeno disuelto en "China Ponds".   
+
+## TIPOS DE VARIABLES ALEATORIAS
+
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("TiposVariables.jpg")
+```
+
+## CASOS ESPECIALES
+**1.- Variable aleatoria binaria:** Posee dos resultados como exito o fracaso, macho o hembra, sano o enfermo, (0,1).
+
+**2.- Variable aleatoria dependiente del tiempo:** 
+
+  **a) Discreta:** Muerte de un organismo o fallo de un componente en un sistema en un tiempo *t*.  
+  
+  **b) Continua:** Señales de sensores ambientales o señales biométricos.
+  
+Algunas de estas variables se conocen como **series de tiempo** y en términos estrictos son más bien una *sucesión de variables aleatorias* a través del tiempo.
+
+
+## VARIABLE ALEATORIA CUANTITATIVA CONTINUA
+**Definición**: Puede tomar cualquier valor dentro de un intervalo (a,b), (a,-Inf), (-Inf,b),(-Inf,Inf) y la probabilidad de que toma uno cualquiera es 0, debido a que existe un número infinito de posibilidades.
+
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("FxNormal.jpg")
+```
+
+## OBSERVAR UNA VARIABLE CUANTITATIVA CONTINUA
+Al observar con un histograma **hist()** notamos que:  
+1. La frecuencia o probabilidad en un intervalo es distinta de cero.  
+2. Cuando aumenta el N muestral se perfila una distribución llamada **normal**.    
+
+```{r, echo=FALSE, out.width = '70%' }
+par(mfrow=c(1,2))
+set.seed(123)
+q<-rnorm(50, 0, 1)
+hist(q, col="red", main = "Histograma N= 50", xlab = "Variable cuantitativa continua")
+q1<-rnorm(10000, 0, 1)
+hist(q1, col="red", main = "Histograma N= 10000", xlab = "Variable cuantitativa continua")
+```
+
+## PREDECIR UNA VARIABLE CUANTITATIVA CONTINUA
+
+Podemos predecir la probabilidad de que la variable aleatoria tome un determinado valor usando la función de densidad empírica **density()**.
+
+```{r , echo=FALSE, out.width = '80%' }
+
+q2<-rnorm(100000, 0, 1)
+plot(density(q2), main = "Función de densidad empírica")
+
+```
+
+## PREDECIR VARIABLES CONTINUAS 2
+
+Podemos predecir la probabilidad de que la variable aleatoria tome un valor menor o igual a un determinado valor usando la función de distribución empírica acumulada **ecdf()**.
+
+```{r}
+ 
+plot(ecdf(q2),main= "Función de distribución empírica acumulada", col="red")
+```
+
+## OBSERVAR CON BOXPLOT
+
+Las gráficas de cajas y bigotes (**boxplot()**) son muy adecuadas para observar variables aleatorias continuas.
+
+[^1]: **IQR =** Rango intercuantílico es la diferencia entre el tercer cuartil (75%) y el primer (25%) cuartil de una distribución.
+
+```{r, echo=FALSE, out.width = '70%' }
+
+knitr::include_graphics("Boxplot.png")
+```
+
+## PRÁCTICA ANÁLISIS DE DATOS
+1.- Guía de trabajo Rmarkdown disponible en drive.  
+**Clase_4**
+
+2.- La tarea se realiza en Rstudio.cloud, proyecto.
+
+**04 Variables cuantitativas continuas**
+
+## RESUMEN DE LA CLASE
+- Identificamos  y clasificamos variables aleatorias.
+
+- Observamos una variable cuantitativa continua usando histogramas, boxplot.
+
+- Predecimos el comportamiento de una variable cuantitativa continua usando funciones de densidad y de distribución acumulada.
