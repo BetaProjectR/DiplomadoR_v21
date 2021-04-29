@@ -50,66 +50,89 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 
 <div class="centered">
 <div class="black">
+
 **PREGUNTAS AL CURSO**
 </div>
 </div>
 
+<div style="text-align: justify">
 <div class="black">
-**1).** **¿ Por qué es importante analizar variables discretas?**
+**1).** **Señale 3 razones de la importancia de reconocer y analizar adecuadamente las variables discretas**.
 
-**2).** **¿ Has tenido que analizar este tipo de variables alguna vez?**
-
+**2).** **Señale 3 ejemplos de variables discretas que haya trabajado o conozca, indique para cada una de ellas que tipo de distribución tiene la variable**.
 
 </div>
-
+</div>
 
 ## 
 <div class="centered">
 <div class="black">
-**ESTUDIO DE CASO:** 
+
+**ESTUDIO DE CASO**
+</div>
 </div>
 
+<div class="black">
+**¿Cuál fue la variable en estudio?**
 
+**¿Qué tipo de distribución usaron?**
+<div class="black">
+
+## 
+<div class="black">
+<div class="centered">
+**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BERNOULLI**
+</div>
+</div>
+
+<div class="black">
+<div class="centered">
+VENENO PARALIZANTE DE LOS MARISCOS (VPM)
+</div>
+<div class="centered">
+Producido en Chile por una microalga llamada Alexandrium catenella.
+</div>
+
+<div class="columns-2">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+<div class="centered">
+<div class="black">
+Intoxicaciones por VPM en Chile 1972-2002
+456 enfermos, 30 fallecidos (total = 486)
+Letalidad= 30 / 486 = 0.0617
+
+</div>
+</div>
 ##
 <div class="black">
 <div class="centered">
-**TRABAJO EN GRUPO**
-</div>
 
-<div class="black">
-
-**¿Cuál fue la variable en estudio?**
-
-
-**¿Qué tipo de distribución usaron?**
-
-
-**¿Qué software se utilizó para los análisis?**
-
-
-</div>
-
-
-## 
-<div class="centered">
-<div class="black">
-
-**EXPERIMENTO BERNOULLI**
-
+**DESCRIBIR EL COMPORTAMIENTO DE MORTALIDAD POR VPM**
 </div>
 </div>
 <div class="black">
 <div style="text-align: justify">
+Ejemplo: Ocurre un evento de marea roja no detectado con A. catenella, 80 personas resultan intoxicadas en todo Chile.
+</div>
+<div class="centered">
+Si la probabilidad de muerte x VPM es de 0,0617.
 
-Es un experimento que tiene las siguientes características:
+¿Cuántas personas morirán?
 
-* En cada prueba del experimento sólo son posibles dos resultados éxito y fracaso.
- 
-* El resultado obtenido en cada prueba es independiente de los resultados anteriores.
+</div>
 
-* La probabilidad de éxito es constante, P(éxito) = p, y no varia de una prueba a otra.
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+</div>
+
 
 ##
+<div class="black">
+<div class="centered">
+**EXPERIMENTO BERNOULLI**
+
+</div>
+</div>
 
 </div>
 <div class="centered">
@@ -128,54 +151,17 @@ Es un experimento que tiene las siguientes características:
 ![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/DistBer.png)
 
 </div>
-
-##
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Bernoulli.png)
-
-</div>
-
 ##
 <div class="centered">
 <div class="black">
-**FUNCIÓN DE PROBABILIDAD DE UNA VARIABLE ALEATORIA DISCRETA**
+**HISTOGRAMA Y FUNCIÓN DE DENSIDAD**
 </div>
 </div>
-<div class="black">
-<div style="text-align: justify">
- Es la función que asocia a cada valor x  de la v.a. X su probabilidad p.
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/HistBer.png)
 
-*Los valores que toma una v.a. discreta X y sus correspondientes probabilidades suelen disponerse en una tabla con dos filas o dos columnas llamada tabla de distribución de probabilidad:
-</div>
-</div>
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/FP_binomial.png)
-</div>
-<div class="black">
-Toda función de probabilidad se verifica 
-</div>
-<div class="centered">
-<div class="black">
-**p1+p2+p3+...+pn=1**
-</div>
 </div>
 
-## 
-<div class="centered">
-<div class="black">
-**FUNCIÓN DE DISTRIBUCIÓN DE UNA VARIABLE ALEATORIA DISCRETA**
-</div>
-</div>
-<div class="black">
-<div style="text-align: justify">
-
-Sea X una v.a. cuyos valores suponemos ordenados de menor a mayor.Se llama función de distribución de la variable X a la función que asocia a cada valor de la v.a. la probabilidad acumulada hasta ese valor, es decir, </div>
-</div>
-<div class="centered">
-<div class="black">
-F(X)= P(X<=X).
-</div>
-</div>
 ##
 <div class="centered">
 <div class="black">
@@ -199,71 +185,41 @@ Es un experimento que debe cumplir las siguientes condiciones:
 ##
 <div class="centered">
 <div class="black">
-**FUNCIÓN DE PROBABILIDAD BINOMIAL**
+**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
 </div>
 </div>
-<div class="black">
-<div style="text-align: justify">
-Para un experimento binomial,sea **p** la probabilidad de un "éxito" y **1-p** la probabilidad de un "fracaso" en un solo ensayo, entonces la probabilidad de obtener **x** éxitos en **n** ensayos, está dado por la función de probabilidad **_f(x)_**:
-</div>
-</div>
+
 <div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/FPbinomial.png)
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Binega.png)
 
 </div>
-
-
-## {.flexbox .vcenter}
-<div class="centered">
-<div class="black">
-
-**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BERNOULLI**
-
-</div>
-</div>
-
-<div class="black">
-<div class="centered">
-VENENO PARALIZANTE DE LOS MARISCOS (VPM)
-</div>
-<div class="centered">
-Producido en Chile por una microalga llamada Alexandrium catenella.
-</div>
-<div class="columns-2">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
-
-Intoxicaciones por VPM en Chile 1972-2002
-456 enfermos, 30 fallecidos (total = 486)
-Letalidad= 30 / 486 = 0.0617
-
-</div>
-</div>
-
-<div class="black">
-<div class="centered">
 
 ##
+<div class="centered">
 <div class="black">
-<div class="centered">
+**SIMULAR VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
+</div>
+</div>
 
-**DESCRIBIR EL COMPORTAMIENTO DE MORTALIDAD POR VPM**
-</div>
-</div>
+<div class="columns-2">
 <div class="black">
-<div style="text-align: justify">
-Ejemplo: Ocurre un evento de marea roja no detectado con A. catenella, 80 personas resultan intoxicadas en todo Chile.
+<div style="text-align: left">
+
+La abundancia de parásitos como el piojo de mar es una variable distreta con distribución binomial negativa, esto significa que hay muchos peces con pocos parásitos   
+(ej= 0 o 1) y poco con muchos parásitos.
+
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/parasitos.png)
+
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**HISTOGRAMA Y BOXPLOT**
+</div>
 </div>
 <div class="centered">
-Si la probabilidad de muerte x VPM es de 0,0617.
-
-¿Cuántas personas morirán?
-
-</div>
-
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
-
-</div>
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/caligulus.png)
 
 ## {.flexbox .vcenter}
 <div class="black">

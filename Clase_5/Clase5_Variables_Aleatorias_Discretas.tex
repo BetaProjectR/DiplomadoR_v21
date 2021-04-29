@@ -1,0 +1,325 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Clase 5 Variables aleatorias Discretas},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Clase 5 Variables aleatorias Discretas}
+\subtitle{Diplomado en Análisis de datos con R para la acuicultura}
+\author{true}
+\date{29 abril 2021}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+
+\textbf{PLAN DE CLASE}
+
+\textbf{1).} \textbf{Introducción}
+
+\begin{itemize}
+\item
+  \textbf{Preguntas al curso.}
+\item
+  \textbf{Estudio de caso.}
+\end{itemize}
+
+\textbf{2).} \textbf{Práctica con R y Rstudio cloud}
+
+\begin{itemize}
+\item
+  \textbf{Observa y predice el comportamiento de variables aleatorias
+  discretas (Binomial y Bernoulli).}
+\item
+  \textbf{Escribir un código de programación} o \textbf{\emph{script}}
+\item
+  \textbf{Elaborar un reporte html con Rmarkdown.}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+
+\textbf{Introducción}
+
+\textbf{\emph{Clase 5 -- Variables discretas}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+
+\textbf{PREGUNTAS AL CURSO}
+
+\textbf{1).} \textbf{Señale 3 razones de la importancia de reconocer y
+analizar adecuadamente las variables discretas}.
+
+\textbf{2).} \textbf{Señale 3 ejemplos de variables discretas que haya
+trabajado o conozca, indique para cada una de ellas que tipo de
+distribución tiene la variable}.
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+
+\textbf{ESTUDIO DE CASO}
+
+\textbf{¿Cuál fue la variable en estudio?}
+
+\textbf{¿Qué tipo de distribución usaron?}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-4}{}
+
+\textbf{VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BERNOULLI}
+
+VENENO PARALIZANTE DE LOS MARISCOS (VPM)
+
+Producido en Chile por una microalga llamada Alexandrium catenella.
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png}
+
+Intoxicaciones por VPM en Chile 1972-2002 456 enfermos, 30 fallecidos
+(total = 486) Letalidad= 30 / 486 = 0.0617
+
+\begin{block}{}
+
+\textbf{DESCRIBIR EL COMPORTAMIENTO DE MORTALIDAD POR VPM}
+
+Ejemplo: Ocurre un evento de marea roja no detectado con A. catenella,
+80 personas resultan intoxicadas en todo Chile.
+
+Si la probabilidad de muerte x VPM es de 0,0617.
+
+¿Cuántas personas morirán?
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png}
+
+\begin{block}{}
+
+\textbf{EXPERIMENTO BERNOULLI}
+
+\end{block}
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/EnsayoBer.png}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-7}{}
+
+\textbf{DISTRIBUCIÓN BERNOULLI}
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/DistBer.png}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-8}{}
+
+\textbf{HISTOGRAMA Y FUNCIÓN DE DENSIDAD}
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/HistBer.png}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-9}{}
+
+\textbf{EXPERMIENTO BINOMIAL}
+
+Es un experimento que debe cumplir las siguientes condiciones:
+
+\textbf{1.} El experimento consta de una secuencia de \textbf{n} ensayos
+idénticos.
+
+\textbf{2.} En cada ensayo hay dos resultados posibles. A uno de ellos
+se le llama \textbf{éxito} y al otro, \textbf{fracaso}.
+
+\textbf{3.} La probabilidad de éxito es constante de un ensayo a otro,
+nunca cambia y se denota por \textbf{p}. Por ello, la probabilidad de
+fracaso será \textbf{1-p}.
+
+\textbf{4.} Los ensayos son \textbf{independientes}, de modo que el
+resultado de cualquiera de ellos \textbf{\emph{no}} influye en el
+resultado de cualquier otro ensayo.
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-10}{}
+
+\textbf{VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA}
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Binega.png}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-11}{}
+
+\textbf{SIMULAR VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL
+NEGATIVA}
+
+La abundancia de parásitos como el piojo de mar es una variable distreta
+con distribución binomial negativa, esto significa que hay muchos peces
+con pocos parásitos\\
+(ej= 0 o 1) y poco con muchos parásitos.
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/parasitos.png}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-12}{}
+
+\textbf{HISTOGRAMA Y BOXPLOT}
+
+\includegraphics{~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/caligulus.png}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
+
+\textbf{Práctica con Rmardown}
+
+\textbf{\emph{Clase 5 -- Variables discretas}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+
+\textbf{TRABAJO EN SALAS}
+
+\textbf{1).} \textbf{Guía de trabajo programación con R disponible en
+drive.}
+
+\textbf{2).} \textbf{La tarea se realiza en Rstudio.cloud}.
+
+Ingresa al siguiente proyecto de
+\textbf{\href{https://rstudio.cloud/spaces/135178/project/2447826/}{Rstudio.Cloud}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-15}{}
+
+\textbf{RESUMEN DE LA CLASE}
+
+\begin{itemize}
+\item
+  Revisar ventajas de elaborar reportes dinámicos con
+  \textbf{\emph{Rmardown}}.
+\item
+  Escribir un código de programación con \textbf{\emph{Rmardown}}
+\item
+  Elaborar diferentes reportes dinámicos.
+\end{itemize}
+
+\end{frame}
+
+\end{document}
