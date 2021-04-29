@@ -5,6 +5,8 @@ author: Dr. José A. Gallardo  |  <jose.gallardo@pucv.cl>  |  Pontificia Univers
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   ioslides_presentation:
+    pdf_document:
+    latex_engine: xelatex
     fig_width: 7
     fig_height: 6
     fig_caption: true
@@ -60,7 +62,10 @@ F.	Variable categórica ordinal.
 ```{r, echo=FALSE, out.width = '80%' }
 knitr::include_graphics("TiposVariables.jpg")
 ```
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/TiposVariables.png)
 
+</div>
 ## CASOS ESPECIALES
 **1.- Variable aleatoria binaria:** Posee dos resultados como exito o fracaso, macho o hembra, sano o enfermo, (0,1).
 
@@ -79,6 +84,12 @@ Algunas de estas variables se conocen como **series de tiempo** y en términos e
 ```{r, echo=FALSE, out.width = '80%' }
 knitr::include_graphics("FxNormal.jpg")
 ```
+
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/FxNormal.png)
+
+</div>
+
 
 ## OBSERVAR UNA VARIABLE CUANTITATIVA CONTINUA
 Al observar con un histograma **hist()** notamos que:  
@@ -124,6 +135,10 @@ Las gráficas de cajas y bigotes (**boxplot()**) son muy adecuadas para observar
 
 knitr::include_graphics("Boxplot.png")
 ```
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/Boxplot.png)
+
+</div>
 
 ## PRÁCTICA ANÁLISIS DE DATOS
 1.- Guía de trabajo Rmarkdown disponible en drive.  
