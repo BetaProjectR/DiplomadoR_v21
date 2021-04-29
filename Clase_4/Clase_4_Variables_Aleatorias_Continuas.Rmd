@@ -4,9 +4,12 @@ author: Dr. José A. Gallardo  |  <jose.gallardo@pucv.cl>  |  Pontificia Univers
   Católica de Valparaíso
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
+  ioslides_presentation:
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    template: quarterly_report.html
   beamer_presentation: default
-  slidy_presentation: default
-  ioslides_presentation: default
 subtitle: Diplomado en Análisis de datos con R para la acuicultura.
 ---
 
@@ -20,7 +23,7 @@ library(psych)
 **1.- Introducción**
 
 - Estudio de caso: Identificar variables aleatorias.
-- Clasificación de variables aleatorias
+- Clasificación de variables aleatorias.
 - Observar una variable cuantitativa continua.
 - Predecir una variable cuantitativa continua.
 
@@ -34,8 +37,8 @@ library(psych)
 
 Conceptos de variables
 
-A.	Variable
-B.	Variable aleatoria
+A.	Variable.
+B.	Variable aleatoria.
 C.	Variables cuantitativas discretas.
 D.	Variables cuantitativas continuas.
 E.	Variable categórica nominal
@@ -57,6 +60,9 @@ F.	Variable categórica ordinal.
 ```{r, echo=FALSE, out.width = '80%' }
 knitr::include_graphics("TiposVariables.jpg")
 ```
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/TiposVariables.png)
+</div>
 
 ## CASOS ESPECIALES
 **1.- Variable aleatoria binaria:** Posee dos resultados como exito o fracaso, macho o hembra, sano o enfermo, (0,1).
@@ -67,7 +73,7 @@ knitr::include_graphics("TiposVariables.jpg")
   
   **b) Continua:** Señales de sensores ambientales o señales biométricos.
   
-Algunas de estas variables se conocen como **series de tiempo** y en términos estrictos son más bien una *susesión de variables aleatorias* a traves del tiempo.
+Algunas de estas variables se conocen como **series de tiempo** y en términos estrictos son más bien una *sucesión de variables aleatorias* a través del tiempo.
 
 
 ## VARIABLE ALEATORIA CUANTITATIVA CONTINUA
@@ -76,11 +82,13 @@ Algunas de estas variables se conocen como **series de tiempo** y en términos e
 ```{r, echo=FALSE, out.width = '80%' }
 knitr::include_graphics("FxNormal.jpg")
 ```
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/FxNormal.png)
 
 ## OBSERVAR UNA VARIABLE CUANTITATIVA CONTINUA
 Al observar con un histograma **hist()** notamos que:  
 1. La frecuencia o probabilidad en un intervalo es distinta de cero.  
-2. Cuando aumenta el N muestral se perfila una distribución llamana **normal**.    
+2. Cuando aumenta el N muestral se perfila una distribución llamada **normal**.    
 
 ```{r, echo=FALSE, out.width = '70%' }
 par(mfrow=c(1,2))
@@ -115,21 +123,27 @@ plot(ecdf(q2),main= "Función de distribución empírica acumulada", col="red")
 
 Las gráficas de cajas y bigotes (**boxplot()**) son muy adecuadas para observar variables aleatorias continuas.
 
-[^1]: **IQR =** Rango intercuantil es la diferencia entre el diferencia entre el tercer (75%) y el primer (25%) cuartil de una distribución.
+[^1]: **IQR =** Rango intercuantílico es la diferencia entre el tercer cuartil (75%) y el primer (25%) cuartil de una distribución.
 
 ```{r, echo=FALSE, out.width = '70%' }
 
 knitr::include_graphics("Boxplot.png")
 ```
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase4/Boxplot.png)
+
+</div>
 
 ## PRÁCTICA ANÁLISIS DE DATOS
 1.- Guía de trabajo Rmarkdown disponible en drive.  
 **Clase_4**
 
-2.- La tarea se realiza en Rstudio.cloud, proyecto
+2.- La tarea se realiza en Rstudio.cloud, proyecto.
+
 **04 Variables cuantitativas continuas**
 
 ## RESUMEN DE LA CLASE
+
 - Identificamos  y clasificamos variables aleatorias.
 
 - Observamos una variable cuantitativa continua usando histogramas, boxplot.
