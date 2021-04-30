@@ -165,7 +165,7 @@ Si la probabilidad de muerte x VPM es de 0,0617.
 ##
 <div class="centered">
 <div class="black">
-**EXPERMIENTO BINOMIAL**
+**EXPERIMENTO BINOMIAL**
 </div>
 </div>
 <div class="black">
@@ -205,7 +205,7 @@ Es un experimento que debe cumplir las siguientes condiciones:
 <div class="black">
 <div style="text-align: left">
 
-La abundancia de parásitos como el piojo de mar es una variable distreta con distribución binomial negativa, esto significa que hay muchos peces con pocos parásitos   
+La abundancia de parásitos como el piojo de mar es una variable discreta con distribución binomial negativa, esto significa que hay muchos peces con pocos parásitos   
 (ej= 0 o 1) y poco con muchos parásitos.
 
 ![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/parasitos.png)
