@@ -1,0 +1,120 @@
+---
+title: "Guía de trabajo manipulación de base de datos"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: Pontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "06/05/2021"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: hide
+  word_document: default
+  pdf_document:
+    latex_engine: xelatex
+---
+
+<style>
+#TOC {
+  color: black;
+  font-familiy: Calibri;
+  font-size: 14px;
+  border-color: #708090; 
+}
+body {
+   color: black;
+   font-familiy: Calibri;
+}
+
+pre {
+  color: black;
+  background-color: #F8F8FF;
+}
+# header {
+  color: #800000;
+  font-familiy: Calibri;
+  background-color: #F5F5F5;
+  opacity: 0.8;
+  font-size: 16px;
+}
+</style>
+
+#### **Introducción**
+
+#### **_Manipulación de bases de datos_**
+
+La manipulación de datos es una de las actividades que más tiempo demanda ya que implica tanto dar el formato adecuado como aplicar transformaciones sobre las variables. Este proceso se lleva a cabo con el fin de generar un conjunto de datos acorde para su *posterior* análisis.
+
+En síntesis la manipulación de datos se resume en cuatro operaciones:
+
+**1.-** **Extraer subconjuntos de datos** 
+
+Ya sea por filas (por algún criterio) o por columnas (para realizar análisis especificos, donde no es necesario considerar todas las variables presentes en la base de datos original).
+
+**2.-** **Transformarlos**
+
+Realizar operaciones aritméticas o lógicas sobre los datos. En general cuando una **variable es continua** realizamos operaciones **_aritméticas_**, cuando es **categórica**, **_lógicas_**.
+
+**3.-** **Obtener medidas resumen del conjunto de datos (ya sea por variable/s) o por grupos (criterio de agrupamiento por fila)** 
+
+Se puede resumir la información por variable calculando: valores promedio, desviaciones estándar, valores mínimos o máximos.
+
+**4.-** **Compactar con otros conjuntos de datos** 
+
+Es posible que en tiempos posteriores surjan nuevas bases de datos que pueden enriquecer nuestros análisis, es muy útil combinar/compactar dicha información de forma homogénea en una sola base de datos.
+
+#### **_Visualización de datos_**
+
+Es importante en la etapa de análisis exploratorio de datos, hacer representaciones gráficas porque permite:
+
+* Detectar posibles valores atípicos "outliers".
+
+* Identificar la posible distribución subyacente de la variable respuesta **(Y)**. 
+
+* Analizar posibles relaciones/asociaciones entre la variable respuesta **(Y)** y la variable explicativa **(X)**.
+
+* Sintetizar/mostrar la información proveniente de los datos, en forma amena y resumida.
+
+**_Nota_**: La librería **ggplot2** contiene la función **_ggplot()_** con la que se generan gráficos tanto visualmente informativos como de agradable aspecto. Los objectos (dataframes) generados por *tidyverse* se pueden graficar con la función **ggplot()**.
+
+#### **Objetivos de aprendizaje**
+
+Los objetivos de aprendizaje de esta guía son:
+
+**1**. Manipular y generar nuevas bases de datos y gráficos a partir de comandos de Tidyverse.
+
+**2**. Elaborar un reporte dinámico en formato pdf.
+
+
+#### **Comandos para manipular datos con Tidiverse**
+
+|  **Comandos** | **Función**      |
+|:-------------|:------------------|
+| **%>%** | Comando que se usa para manipular set de datos en tidyverse. |
+| **filter()** | Filtra los datos por algún criterio establecido por el usuario. |
+| **arrange()** | Ordena la base de datos según una variable (de forma ascendente). |
+| **arrange(desc())** | Ordena la base de datos según una variable (de forma descendente). |
+| **mutate()** | Cambia el contenido de una variable o genera variables derivadas a partir de variables existentes en el conjunto de datos. |
+| **summarize()** | Resume la información de la/s variable/s en un solo dato. Algunas funciones que se pueden usar para resumir la información son: **_mean_** *para calcular el promedio por variable*, **_sum_** *para sumar las observaciones de una variable*, **_median_** *para calcular la mediana por variable*,**_min_** *para encontrar el valor mínimo por variable* y **_max_** *para encontrar el valor máximo por variable*.|
+| **group_by** | Agrupa las observaciones (filas de la base de datos) por algún criterio establecido por el usuario.|
+__________________________________________________________________
+
+#### **Comandos para realizar gráficos con ggplot2 en Tidiverse**
+
+|  **Comandos** | **Función** |
+|:-------------|:------------------|
+| **ggplot():**| Permite hacer gráficos en el formato de ggplot2.|
+| **geom_point():** | Argumento que se adiciona a la función ggplot() para generar diagramas de dispersión. |
+| **geom_line():** | Argumento que se adiciona a la función ggplot() para generar diagramas de líneas. |
+| **geom_col():** | Argumento que se adiciona a la función ggplot() para generar diagramas de barras. |
+| **geom_histogram():** | Argumento que se adiciona a la función ggplot() para generar histogramas. | 
+| **geom_boxplot():** | Argumento que se adiciona a la función ggplot() para generar gráficos de cajas y bigotes. |   
+| **expand_limits(y=0):** | Argumento que se adiciona a la función ggplot() para que el eje de la **Y** empiece en cero. |
+| **scale_x_log10():** | Argumento que se adiciona a la función ggplot() para que el eje de la **X** este en la escala de logaritmo en base 10. |
+| **facet_wrap(~ variable):** | Argumento que se adiciona a la función ggplot() para que realice tantos gráficos según los niveles que tenga la variable. |
+__________________________________________________________________
+
+

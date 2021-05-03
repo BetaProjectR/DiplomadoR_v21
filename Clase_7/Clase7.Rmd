@@ -1,0 +1,272 @@
+---
+title: "Clase 7"
+subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
+author:
+ name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
+ affiliation: Pontificia Universidad Católica de Valparaíso
+ email: <jose.gallardo@pucv.cl>
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  ioslides_presentation:
+    template: quarterly_report.html
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 
+<div class="centered">
+<div class="black">
+**PLAN DE CLASE**
+</div>
+</div>
+
+<div class="black">
+**1).** **Introducción.**
+
+- **Preguntas al curso.**
+
+- **Estudio de caso.**
+
+**2).** **Práctica con R y Rstudio cloud.**
+
+- **Manipula y genera nuevas bases de datos y gráficos a partir de comandos de Tidyverse.**
+
+- **Escribir un código de programación** o **_script_.**
+
+- **Elaborar un reporte html con Rmarkdown.**
+
+</div>
+## {.flexbox .vcenter}
+<div class="black">
+<div class="centered">
+**Introducción**
+
+**_Clase 7 – Generando nuevas bases de datos_**
+</div>
+</div>
+## 
+<div class="centered">
+<div class="black">
+
+**PREGUNTAS AL CURSO**
+</div>
+</div>
+
+<div style="text-align: justify">
+<div class="black">
+**1).** **Señale 3 razones de la importancia de filtrar observaciones por algún criterio, hacer subconjuntos de datos y generar variables derivadas con información de variables existentes en el set de datos**.
+
+**2).** **Desde su experiencia, comente sobre que tipo de herramientas ha usado en sus análisis de datos, para filtrar o generar subconjuntos de bases de datos**.
+
+</div>
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+
+**ESTUDIO DE CASO**
+</div>
+</div>
+
+<div class="black">
+**¿Hay datos faltantes en el set de datos, si hay, cuántos son?**
+
+**¿ ?**
+<div class="black">
+
+## 
+<div class="black">
+<div class="centered">
+**Proceso del de **
+</div>
+</div>
+
+<div class="black">
+<div class="centered">
+VENENO PARALIZANTE DE LOS MARISCOS (VPM)
+</div>
+<div class="centered">
+Producido en Chile por una microalga llamada Alexandrium catenella.
+</div>
+
+<div class="columns-2">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+<div class="centered">
+<div class="black">
+Intoxicaciones por VPM en Chile 1972-2002
+456 enfermos, 30 fallecidos (total = 486)
+Letalidad= 30 / 486 = 0.0617
+
+</div>
+</div>
+##
+<div class="black">
+<div class="centered">
+
+**DESCRIBIR EL COMPORTAMIENTO DE MORTALIDAD POR VPM**
+</div>
+</div>
+<div class="black">
+<div style="text-align: justify">
+Ejemplo: Ocurre un evento de marea roja no detectado con A. catenella, 80 personas resultan intoxicadas en todo Chile.
+</div>
+<div class="centered">
+Si la probabilidad de muerte x VPM es de 0,0617.
+
+¿Cuántas personas morirán?
+
+</div>
+
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+</div>
+
+
+##
+<div class="black">
+<div class="centered">
+**EXPERIMENTO BERNOULLI**
+
+</div>
+</div>
+
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/EnsayoBer.png)
+</div>
+</div>
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**DISTRIBUCIÓN BERNOULLI**
+</div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/DistBer.png)
+
+</div>
+##
+<div class="centered">
+<div class="black">
+**HISTOGRAMA Y FUNCIÓN DE DENSIDAD**
+</div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/HistBer.png)
+
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**EXPERIMENTO BINOMIAL**
+</div>
+</div>
+<div class="black">
+<div style="text-align: justify">
+Es un experimento que debe cumplir las siguientes condiciones:
+
+**1.** El experimento consta de una secuencia de **n** ensayos idénticos.
+
+**2.** En cada ensayo hay dos resultados posibles. A uno de ellos se le llama **éxito** y al otro, **fracaso**.
+
+**3.** La probabilidad de éxito es constante de un ensayo a otro, nunca cambia y se denota por **p**. Por ello, la probabilidad de fracaso será **1-p**.
+
+**4.** Los ensayos son **independientes**, de modo que el resultado de cualquiera de ellos **_no_** influye en el resultado de cualquier otro ensayo.
+</div>
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
+</div>
+</div>
+
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Binega.png)
+
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**SIMULAR VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
+</div>
+</div>
+
+<div class="columns-2">
+<div class="black">
+<div style="text-align: left">
+
+La abundancia de parásitos como el piojo de mar es una variable discreta con distribución binomial negativa, esto significa que hay muchos peces con pocos parásitos   
+(ej= 0 o 1) y poco con muchos parásitos.
+
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/parasitos.png)
+
+</div>
+
+##
+<div class="centered">
+<div class="black">
+**HISTOGRAMA Y BOXPLOT**
+</div>
+</div>
+<div class="centered">
+![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/caligulus.png)
+
+## {.flexbox .vcenter}
+<div class="black">
+<div class="centered">
+**Práctica con Rmardown**
+
+**_Clase 5 – Variables discretas_**
+</div>
+</div>
+
+##
+<div class="black">
+<div class="centered">
+**TRABAJO EN SALAS**
+
+</div>
+</div>
+
+<div class="black">
+**1).** **Guía de trabajo programación con R disponible en drive.**
+
+**2).** **La tarea se realiza en Rstudio.cloud**. 
+
+Ingresa al siguiente proyecto de **[Rstudio.Cloud](https://rstudio.cloud/spaces/135178/project/2447826/)** 
+
+</div>
+
+
+## 
+
+<div class="centered">
+<div class="black">
+
+**RESUMEN DE LA CLASE**
+
+</div>
+</div>
+
+<div class="black">
+
+* Revisar ventajas de elaborar reportes dinámicos con **_Rmardown_**.
+
+* Escribir un código de programación con **_Rmardown_**
+
+* Elaborar diferentes reportes dinámicos.
+
+</div>
+
+
+
