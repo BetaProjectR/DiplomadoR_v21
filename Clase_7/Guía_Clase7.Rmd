@@ -7,14 +7,14 @@ author:
  email: <jose.gallardo@pucv.cl>
 date: "06/05/2021"
 output:
-  pdf_document:
-    latex_engine: xelatex
-  word_document: default
   html_document:
     toc: true
     toc_float: true
     toc_depth: 3
     code_folding: hide
+  word_document: default
+  pdf_document:
+    latex_engine: xelatex
 ---
 
 <style>
@@ -180,7 +180,7 @@ datos1 %>%
 
 Con conjunto de datos **datos1** realice un gráfico de barras donde la variable X=**Especies** y en el eje Y =**ProdNac**, colore por Especies.Divida los diagramas de barras por Year, use el comando facet_wrap(~ Year).Además, use el comando expand_limits(y=0) para que el eje Y comience en cero.
 
-```{r datos1, fig.width= 8}
+```{r datos1, fig.width= 8, fig.align='center'}
  ggplot(datos1, aes(x= Especies, y= ProdNac, fill=Especies))+
    geom_col()+
   labs(y= "Producción Nacional", x= "Especies",
@@ -195,7 +195,7 @@ Con conjunto de datos **datos1** realice un gráfico de barras donde la variable
 
 Con el conjunto de datos **datos1** realice un gráfico de dispersión donde la variable X=**DispOvas** y la variable Y =**ProdNac**. Colore por especies.Además, use el comando expand_limits(y=0) para que el eje Y comience en cero.
 
-```{r, fig.width= 8}
+```{r, fig.width= 8, fig.align='center'}
  ggplot(datos1, aes(x= DispOvas, y= ProdNac, color=Especies))+
    geom_point()+
   labs(y= "Producción Nacional", x= "Disponibilidad de Ovas",
@@ -252,7 +252,7 @@ datos2_new
 
 ```
 
-```{r datos2_new, fig.width= 9}
+```{r datos2_new, fig.width= 9,fig.align='center'}
 ggplot(datos2_new, aes(x=Mes, y= NTotal, fill= Mes))+
   geom_col() +
   expand_limits(y=0)+
