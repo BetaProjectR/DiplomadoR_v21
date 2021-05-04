@@ -148,7 +148,7 @@ head(datos1)
 str(datos1)
 ```
 
-### **Ejercicio 4.** **Filtrar información de la base de datos por algún criterio, en este caso por el año 2017** 
+### **Ejercicio 4.** **Filtrar información de la base de datos por algún criterio** 
 
 Del conjunto de datos **datos1** seleccione solo la información del **Year 2017** usando la función **_filter()_**, recuerde usar el simbolo **%>%** para que pueda realizar el filtrado.
 
@@ -166,7 +166,7 @@ datos1 %>%
   filter(Year == 2016, Especies == "Salmón del Atlántico")
 ```
 
-### **Ejercicio 6.** **Hacer medidas resumen para la variable ProdNac solo para la Trucha Arcoiris** 
+### **Ejercicio 6.** **Calcular medidas resumen** 
 
 Del conjunto de datos **datos1** seleccione solo la información de la **Trucha Arcoiris** para los dos años evaluados, usando la función **_filter()_**. Halle la media y el valor mínimo de la variable **ProdNac**, genere los objetos **_Media_ProdNac_** y **_Min_ProdNac_**, respectivamente. Use la función **_summarize()_**.
 
@@ -176,20 +176,21 @@ datos1 %>%
   summarize(Media_ProdNac= mean(ProdNac),Min_ProdNac = min(ProdNac))
 ```
 
-### **Ejercicio 7.** **Hacer boxplot con la función ggplot ()** 
+### **Ejercicio 7.** **Graficar con la función ggplot ()** 
 
 Con conjunto de datos **datos1** realice un boxplot donde la variable X es Year y en el eje Y =**ProdNac**, colore por Especie. Volver la variable Especies Factor y la variable Year entera.
-```{r datos1}
- ggplot(datos1, aes(x= Especies, y= ProdNac, fill=Especies))+
-   geom_boxplot()+
+```{r datos1, fig.width= 8}
+ ggplot(datos1, aes(x= Especies, y= ProdNac, color=Year))+
+   geom_point()+
+  labs(y= "Producción Nacional", x= "Especies",
+       caption = "Fuente: Sernapesca")+
    expand_limits(y=0)+
-  theme(legend.position="none")
-
+   facet_wrap(~ Year)+
+   guides(fill=FALSE, color=FALSE)+
+   theme_bw()
 ```
 
-
-
-### **Ejercicio 7.** **Importar la base de Datos2** 
+### **Ejercicio 8.** **Importar la base de Datos2** 
 
 Cree un objeto llamado **datos2** e importe el set de datos **Datos2** usando la función **_read_excel()_** de la librería **readxl**. Explore el set de datos usando las funciones **head()** y **str()**.
 
@@ -199,7 +200,7 @@ head(datos2)
 str(datos2)
 ```
 
-### **Ejercicio 8.** **Reemplazar los valores faltantes en la base de datos datos2** 
+### **Ejercicio 9.** **Reemplazar los valores faltantes en la base de datos datos2** 
 
 Reemplace los valores faltantes **NA** por **0** de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2**. Use la función **_replace_na()_** y como argumento de esta función haga una **lista** con estas variables e igualelas a cero.
 
@@ -210,9 +211,9 @@ replace_na(list(Region_Lagos = 0, Region_Aysen = 0, Region_Magallanes = 0)) %>%
          Region_Magallanes = Region_Magallanes)
 ```
 
-### **Ejercicio 9.** **Genere una nueva variable a partir de la información de otras variables** 
+### **Ejercicio 10.** **Genere una nueva variable a partir de la información de otras variables** 
 
-Genere una nueva variable llamada **NTotal** a partir de la suma de los datos de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2** generada en el **ejercicio 8**. También, genere una variable llamada **Per_NTotal** que es el porcentaje mensual de casos de ISA confirmados. Use la función **_mutate_**.
+Genere una nueva variable llamada **NTotal** a partir de la suma de los datos de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2** generada en el **ejercicio 9**. También, genere una variable llamada **Per_NTotal** que es el porcentaje mensual de casos de ISA confirmados. Use la función **_mutate_**.
 
 ```{r datos2}
 datos2 %>%
@@ -223,7 +224,7 @@ replace_na(list(Region_Lagos = 0, Region_Aysen = 0, Region_Magallanes = 0)) %>%
          Per_NTotal = (NTotal/sum(NTotal))*100)
 ```
 
-### **Ejercicio 10.** **Realice un diagrama de barras** 
+### **Ejercicio 11.** **Realice un diagrama de barras** 
 
 Cargue la base de datos **datos2_new.txt**, estos datos son los que se generaron con la información del ejercicio anterior. Use ggplot() para realizar un diagrama de barras con la variables X = Mes, e Y = NTotal.
 
@@ -233,16 +234,26 @@ datos2_new
 ```
 
 
-```{r datos2_new}
-Datos_new <- datos2_new %>%
-  filter(Mes == c("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio"))
+```{r datos2_new, fig.width= 10}
+datos2_new<-read.table("datos2_new.txt", header = TRUE, sep = " ")
+datos2_new
+datos2_new[,1] <- as.factor(datos2_new$Mes)
+datos2_new
+mes_cod<- datos2_new[sort(order(datos2_new$Mes)),] 
+levels(mes_cod) <- c("Enero","Febrero","Marzo","Abril","Mayo","Junio",                               "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+mes_cod
+
+
+Datos_new <- mes_cod %>%
+  group_by(Mes)
   
 Datos_new
 
-ggplot(Datos_new, aes(x=Mes, y= NTotal, ))+
+ggplot(Datos_new, aes(x=Mes, y= NTotal))+
   geom_col() +
-  expand_limits(y=0)
+  expand_limits(y=0)+
+  labs(title= "Número de nuevos casos (incidencia) confirmados HPR0 durante el 2019", y= "Nº Total de casos de ISA por mes", x= "Mes",
+       caption = "Fuente: Sernapesca")+
+  guides(fill=FALSE, color=FALSE)+
+  theme_bw()
 ```
-
-
-
