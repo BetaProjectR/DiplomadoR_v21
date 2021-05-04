@@ -1,0 +1,13 @@
+"Mes" "Region_Lagos" "Region_Aysen" "Region_Magallanes" "NTotal" "Per_NTotal"
+"1" "Enero" 0 1 0 1 2.5
+"2" "Febrero" 0 1 1 2 5
+"3" "Marzo" 2 2 1 5 12.5
+"4" "Abril" 0 2 4 6 15
+"5" "Mayo" 1 3 0 4 10
+"6" "Junio" 0 6 2 8 20
+"7" "Julio" 4 0 0 4 10
+"8" "Agosto" 0 0 1 1 2.5
+"9" "Septiembre" 0 0 0 0 0
+"10" "Octubre" 1 1 1 3 7.5
+"11" "Noviembre" 1 0 1 2 5
+"12" "Diciembre" 0 4 0 4 10
