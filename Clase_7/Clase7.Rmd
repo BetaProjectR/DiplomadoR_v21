@@ -315,9 +315,9 @@ Ingresa al siguiente proyecto de **[Rstudio.Cloud](https://rstudio.cloud/spaces/
 
 <div class="black">
 
-* Revisar ventajas de manipular bases de datos con **_Tidyverse_**.
+* Revisar funciones para manipular bases de datos con **_Tidyverse_**.
 
-* Escribir un código de programación con **_Rmardown_**
+* Escribir un código de programación con **Rmardown**
 
 * Elaborar diferentes reportes dinámicos.
 
