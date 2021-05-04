@@ -1,5 +1,5 @@
 ---
-title: "Clase 7"
+title: "Clase 7 Manipulación de bases de datos con Tidiverse"
 subtitle: 'Diplomado en Análisis de datos con R para la acuicultura'
 author:
  name: Dr. José A. Gallardo y Dra. María Angélica Rueda.
@@ -12,7 +12,7 @@ output:
   beamer_presentation: default
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -44,7 +44,7 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="centered">
 **Introducción**
 
-**_Clase 7 – Generando nuevas bases de datos_**
+**_Clase 7 – Manipulación de bases de datos_**
 </div>
 </div>
 ## 
@@ -75,34 +75,49 @@ knitr::opts_chunk$set(echo = TRUE)
 <div class="black">
 **¿Hay datos faltantes en el set de datos, si hay, cuántos son?**
 
-**¿ ?**
+**¿ Se podría en R sumar datos NA con números, come sería el resultado de adicionar estos tipos de datos?**
+
 <div class="black">
 
 ## 
 <div class="black">
 <div class="centered">
-**Proceso del de **
+**Manipulación de bases de datos con Tidiverse**
 </div>
 </div>
 
 <div class="black">
+<div style="text-align: justify">
+La manipulación de datos es una de las actividades que más tiempo demanda ya que implica dar el formato adecuado a nuestro set de datos considerando filtros, limpieza de datos, agrupamientos, selección de variables, generación de variables derivadas de la ya existentes. transformaciones sobre las variables. Una herramienta útil para la manipulación de datos es Tidyverse.
+
 <div class="centered">
-VENENO PARALIZANTE DE LOS MARISCOS (VPM)
-</div>
-<div class="centered">
-Producido en Chile por una microalga llamada Alexandrium catenella.
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("Tidyverse.png")
+```
 </div>
 
-<div class="columns-2">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
+<div class="black">
+<div class="centered">
+**Producción y disponibilidad de Nacional de ovas 2016- 2017**
+</div>
+<div style="text-align: justify">
+El año 2017, la producción nacional de ovas aumentó en un 9% en relación al año 2016. El principal proveedor de ovas de salmónidos es Islandia. 
+</div>
+
+```{r, echo=FALSE, out.width = '80%' }
+knitr::include_graphics("Ovas.png")
+```
+
+##
 <div class="centered">
 <div class="black">
-Intoxicaciones por VPM en Chile 1972-2002
-456 enfermos, 30 fallecidos (total = 486)
-Letalidad= 30 / 486 = 0.0617
+**Producción y disponibilidad de Nacional de ovas 2016- 2017**
+</div>
+</div>
+```{r, echo=TRUE}
+library(dplyr)
+```
 
-</div>
-</div>
 ##
 <div class="black">
 <div class="centered">
