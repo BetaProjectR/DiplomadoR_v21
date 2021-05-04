@@ -14,6 +14,11 @@ output:
 
 ```{r setup, include=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(readxl)
+library(kableExtra)
+library(knitr)
+library(ggplot2)
 ```
 
 ## 
@@ -82,166 +87,201 @@ knitr::opts_chunk$set(echo = TRUE)
 ## 
 <div class="black">
 <div class="centered">
-**Manipulación de bases de datos con Tidiverse**
+**MANIPULACIÓN DE BASES DE DATOS**
 </div>
 </div>
 
 <div class="black">
 <div style="text-align: justify">
-La manipulación de datos es una de las actividades que más tiempo demanda ya que implica dar el formato adecuado a nuestro set de datos considerando filtros, limpieza de datos, agrupamientos, selección de variables, generación de variables derivadas de la ya existentes. transformaciones sobre las variables. Una herramienta útil para la manipulación de datos es Tidyverse.
+Es una de las etapas que más tiempo demanda antes de realizar el proceso de analizar los datos; ya que implica dar el formato adecuado a nuestro set de datos. Algunos aspectos a considerar a la hora de manipular bases de datos son:
 
-<div class="centered">
-```{r, echo=FALSE, out.width = '80%' }
-knitr::include_graphics("Tidyverse.png")
-```
+* Aplicar filtros 
+
+* Remover o imputar datos faltantes
+
+* Usar agrupamientos por algún criterio
+
+* Seleccionar variables
+
+* Generar variables derivadas de la ya existentes 
+</div>
 </div>
 
 <div class="black">
 <div class="centered">
-**Producción y disponibilidad de Nacional de ovas 2016- 2017**
+**_Una herramienta útil para la manipulación de datos es Tidyverse._**
+</div>
+</div>
+
+## 
+<div class="centered">
+<div class="black">
+**¿ CÓMO FUNCIONA LA MANIPULACIÓN DE BASES DE DATOS CON TIDIVERSE?**
+</div>
+</div>
+
+```{r, echo=FALSE, out.width = '90%', fig.align='center', fig.cap= 'Figura tomada de DataCamp'}
+knitr::include_graphics("Tidyverse.png")
+```
+</div>
+</div>
+## 
+<div class="black">
+<div class="centered">
+**¿CÓMO MANIPULAR LOS DATA FRAMES?**
+</div>
+</div>
+
+<div class="black">
+<div style="text-align: justify">
+
+El paquete **dplyr** del tidyverse posee funciones que realizan algunas de las operaciones más comunes cuando se trabaja con los **_data frames_**, permitiendo manipular de una forma ágil la base de datos que queremos analizar *a posteriori*. 
+
+Veamos algunas **funciones claves**:
+
+* Para cambiar la tabla de datos agregando una nueva columna, utilizamos **mutate()**. 
+
+* Para filtrar la tabla de datos a un subconjunto de filas, utilizamos **filter()**. 
+
+* Para subdividir los datos seleccionando columnas específicas, usamos **select()**.
+</div>
+</div>
+
+## 
+<div class="black">
+<div class="centered">
+**PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS 2016-2017**
 </div>
 <div style="text-align: justify">
 El año 2017, la producción nacional de ovas aumentó en un 9% en relación al año 2016. El principal proveedor de ovas de salmónidos es Islandia. 
 </div>
 
-```{r, echo=FALSE, out.width = '80%' }
+```{r, echo=FALSE, out.width = '80%',fig.align='center',fig.cap= 'Figura tomada de informe de Sernapesca'}
 knitr::include_graphics("Ovas.png")
 ```
 
 ##
 <div class="centered">
 <div class="black">
-**Producción y disponibilidad de Nacional de ovas 2016- 2017**
+**FILTRAR DATOS DE PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS DEL AÑO 2016**
 </div>
 </div>
-```{r, echo=TRUE}
-library(dplyr)
+
+<div class="centered">
+<div class="black">
+```{r, eval=FALSE}
+filter(Year == 2016)
+```
+</div>
+</div>
+
+```{r table,echo=FALSE,align = "ccc"}
+datos1 <- read_excel("Datos1.xlsx")
+knitr::kable(datos1,digits = 2,caption = "Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).") %>%
+kable_styling(bootstrap_options = "striped", full_width = F, font_size = 20) %>%
+row_spec(1:3, bold = T, color = "white", background = "blue")
+```
+
+## 
+<div class="centered">
+<div class="black">
+**AGRUPAR DATOS DE PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS PARA LOS AÑOS EVALUADOS**
+</div>
+</div>
+<div class="centered">
+<div class="black">
+```{r, eval=FALSE}
+group_by(Year)
+```
+</div>
+</div>
+
+```{r,echo=FALSE,align = "ccc"}
+datos1 <- read_excel("Datos1.xlsx")
+knitr::kable(datos1,digits = 2,caption = "Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).") %>%
+kable_styling(bootstrap_options = "striped", full_width = F, font_size = 20) %>%
+row_spec(1:6, bold = T, color = "white", background = "blue")
+```
+
+## 
+<div class="centered">
+<div class="black">
+**SELECCIONAR VARIABLES DE LOS DATOS DE PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS**
+</div>
+</div>
+
+<div class="centered">
+<div class="black">
+```{r, eval=FALSE}
+select(Especies, Year,ProdNac)
+```
+</div>
+</div>
+
+```{r,echo=FALSE,align = "ccc"}
+
+datos1 <- read_excel("Datos1.xlsx")
+knitr::kable(datos1,digits = 2,caption = "Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).") %>%
+kable_styling(bootstrap_options = "striped", full_width = F, font_size = 20) %>%
+column_spec(1:3, bold = T, color = "white", background = "blue")
+```
+
+## 
+<div class="centered">
+<div class="black">
+**MEDIDAS RESUMEN POR VARIABLE**
+</div>
+</div>
+
+<div class="centered">
+<div class="black">
+```{r, eval=FALSE}
+summarize(Min_ProdNac = min(ProdNac), Max_ProdNac = max(ProdNac))
+```
+</div>
+</div>
+
+```{r,echo=FALSE,align = "ccc"}
+
+datos1 <- read_excel("Datos1.xlsx")
+datos1 %>%
+  summarize(Min_ProdNac = min(ProdNac), 
+            Max_ProdNac = max(ProdNac))
+```
+
+
+```{r,echo=FALSE,align = "ccc"}
+
+datos1 <- read_excel("Datos1.xlsx")
+knitr::kable(datos1,digits = 2,caption = "Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).") %>%
+kable_styling(bootstrap_options = "striped", full_width = F, font_size = 20) %>%
+column_spec(3, bold = T, color = "white", background = "blue")
 ```
 
 ##
-<div class="black">
-<div class="centered">
-
-**DESCRIBIR EL COMPORTAMIENTO DE MORTALIDAD POR VPM**
-</div>
-</div>
-<div class="black">
-<div style="text-align: justify">
-Ejemplo: Ocurre un evento de marea roja no detectado con A. catenella, 80 personas resultan intoxicadas en todo Chile.
-</div>
-<div class="centered">
-Si la probabilidad de muerte x VPM es de 0,0617.
-
-¿Cuántas personas morirán?
-
-</div>
-
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/LetalidadVPM.png)
-</div>
-
-
-##
-<div class="black">
-<div class="centered">
-**EXPERIMENTO BERNOULLI**
-
-</div>
-</div>
-
-</div>
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/EnsayoBer.png)
-</div>
-</div>
-</div>
-
-##
 <div class="centered">
 <div class="black">
-**DISTRIBUCIÓN BERNOULLI**
-</div>
-</div>
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/DistBer.png)
-
-</div>
-##
-<div class="centered">
-<div class="black">
-**HISTOGRAMA Y FUNCIÓN DE DENSIDAD**
-</div>
-</div>
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/HistBer.png)
-
-</div>
-
-##
-<div class="centered">
-<div class="black">
-**EXPERIMENTO BINOMIAL**
-</div>
-</div>
-<div class="black">
-<div style="text-align: justify">
-Es un experimento que debe cumplir las siguientes condiciones:
-
-**1.** El experimento consta de una secuencia de **n** ensayos idénticos.
-
-**2.** En cada ensayo hay dos resultados posibles. A uno de ellos se le llama **éxito** y al otro, **fracaso**.
-
-**3.** La probabilidad de éxito es constante de un ensayo a otro, nunca cambia y se denota por **p**. Por ello, la probabilidad de fracaso será **1-p**.
-
-**4.** Los ensayos son **independientes**, de modo que el resultado de cualquiera de ellos **_no_** influye en el resultado de cualquier otro ensayo.
+**REPRESENTACIÓN GRAFICA USANDO GGPLOT2**
 </div>
 </div>
 
-##
-<div class="centered">
-<div class="black">
-**VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
-</div>
-</div>
+```{r, echo=FALSE, fig.width= 8, fig.align='center'}
+datos1 <- read_excel("Datos1.xlsx")
+ggplot(datos1, aes(x= DispOvas, y= ProdNac, color=Especies))+
+   geom_point()+
+  labs(y= "Producción Nacional", x= "Disponibilidad de Ovas",
+       caption = "Fuente: Sernapesca")+
+   expand_limits(y=0)+
+   theme_bw()
+```
 
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/Binega.png)
-
-</div>
-
-##
-<div class="centered">
-<div class="black">
-**SIMULAR VARIABLE ALEATORIA DISCRETA CON DISTRIBUCIÓN BINOMIAL NEGATIVA**
-</div>
-</div>
-
-<div class="columns-2">
-<div class="black">
-<div style="text-align: left">
-
-La abundancia de parásitos como el piojo de mar es una variable discreta con distribución binomial negativa, esto significa que hay muchos peces con pocos parásitos   
-(ej= 0 o 1) y poco con muchos parásitos.
-
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/parasitos.png)
-
-</div>
-
-##
-<div class="centered">
-<div class="black">
-**HISTOGRAMA Y BOXPLOT**
-</div>
-</div>
-<div class="centered">
-![](~/GitHub/DiplomadoR_Acuicultura_v21/Imagenes/Clase5/caligulus.png)
 
 ## {.flexbox .vcenter}
 <div class="black">
 <div class="centered">
-**Práctica con Rmardown**
+**Práctica**
 
-**_Clase 5 – Variables discretas_**
+**_Clase 7 – Manipulación de bases de datos_**
 </div>
 </div>
 
@@ -275,7 +315,7 @@ Ingresa al siguiente proyecto de **[Rstudio.Cloud](https://rstudio.cloud/spaces/
 
 <div class="black">
 
-* Revisar ventajas de elaborar reportes dinámicos con **_Rmardown_**.
+* Revisar ventajas de manipular bases de datos con **_Tidyverse_**.
 
 * Escribir un código de programación con **_Rmardown_**
 
