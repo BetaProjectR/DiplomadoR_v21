@@ -7,14 +7,14 @@ author:
  email: <jose.gallardo@pucv.cl>
 date: "06/05/2021"
 output:
+  pdf_document:
+    latex_engine: xelatex
+  word_document: default
   html_document:
     toc: true
     toc_float: true
     toc_depth: 3
     code_folding: hide
-  word_document: default
-  pdf_document:
-    latex_engine: xelatex
 ---
 
 <style>
@@ -44,7 +44,7 @@ pre {
 
 #### **Introducción**
 
-#### **_Manipulación de bases de datos_**
+#### **_Manipulación de bases de datos._**
 
 La manipulación de datos es una de las actividades que más tiempo demanda ya que implica tanto dar el formato adecuado como aplicar transformaciones sobre las variables. Este proceso se lleva a cabo con el fin de generar un conjunto de datos acorde para su *posterior* análisis.
 
@@ -66,7 +66,7 @@ Se puede resumir la información por variable calculando: valores promedio, desv
 
 Es posible que en tiempos posteriores surjan nuevas bases de datos que pueden enriquecer nuestros análisis, es muy útil combinar/compactar dicha información de forma homogénea en una sola base de datos.
 
-#### **_Visualización de datos_**
+#### **_Visualización de datos._**
 
 Es importante en la etapa de análisis exploratorio de datos, hacer representaciones gráficas porque permite:
 
@@ -100,7 +100,7 @@ Los objetivos de aprendizaje de esta guía son:
 | **mutate()** | Cambia el contenido de una variable o genera variables derivadas a partir de variables existentes en el conjunto de datos. |
 | **summarize()** | Resume la información de la/s variable/s en un solo dato. Algunas funciones que se pueden usar para resumir la información son: **_mean_** *para calcular el promedio por variable*, **_sum_** *para sumar las observaciones de una variable*, **_median_** *para calcular la mediana por variable*,**_min_** *para encontrar el valor mínimo por variable* y **_max_** *para encontrar el valor máximo por variable*.|
 | **group_by** | Agrupa las observaciones (filas de la base de datos) por algún criterio establecido por el usuario.|
-__________________________________________________________________
+
 
 #### **Comandos para realizar gráficos con ggplot2 en Tidiverse**
 
@@ -115,7 +115,7 @@ __________________________________________________________________
 | **expand_limits(y=0):** | Argumento que se adiciona a la función ggplot() para que el eje de la **Y** empiece en cero. |
 | **scale_x_log10():** | Argumento que se adiciona a la función ggplot() para que el eje de la **X** este en la escala de logaritmo en base 10. |
 | **facet_wrap(~ variable):** | Argumento que se adiciona a la función ggplot() para que realice tantos gráficos según los niveles que tenga la variable. |
-__________________________________________________________________
+
 
 ## **Ejercicios**
 
@@ -123,7 +123,7 @@ __________________________________________________________________
 
 Elabore un archivo o file con extensión **.Rmd** y configurelo para exportar el resultado como un documento dinámico **pdf**. Utilice el siguiente ejemplo para completar la información de **metadatos**: Título: Reporte Manipulación de base de datos, nombre del autor: Su nombre.
 
-Luego guarde inmediatamente su script como **script_7_nombre_apellido.Rmd**. Al finalizar la actividad deberá exportar y almacenar este **_script_** en su carpeta drive de tareas.
+Luego, guarde inmediatamente su script como **script_7_nombre_apellido.Rmd**. Al finalizar la actividad deberá exportar y almacenar este **_script_** en su carpeta drive de tareas.
 
 ### **Ejercicio 2.** **Configuración del reporte**
 
@@ -176,12 +176,13 @@ datos1 %>%
   summarize(Media_ProdNac= mean(ProdNac),Min_ProdNac = min(ProdNac))
 ```
 
-### **Ejercicio 7.** **Graficar con la función ggplot ()** 
+### **Ejercicio 7.** **Graficar diagrama de barras con ggplot()** 
 
-Con conjunto de datos **datos1** realice un boxplot donde la variable X es Year y en el eje Y =**ProdNac**, colore por Especie. Volver la variable Especies Factor y la variable Year entera.
+Con conjunto de datos **datos1** realice un gráfico de barras donde la variable X=**Especies** y en el eje Y =**ProdNac**, colore por Especies.Divida los diagramas de barras por Year, use el comando facet_wrap(~ Year).Además, use el comando expand_limits(y=0) para que el eje Y comience en cero.
+
 ```{r datos1, fig.width= 8}
- ggplot(datos1, aes(x= Especies, y= ProdNac, color=Year))+
-   geom_point()+
+ ggplot(datos1, aes(x= Especies, y= ProdNac, fill=Especies))+
+   geom_col()+
   labs(y= "Producción Nacional", x= "Especies",
        caption = "Fuente: Sernapesca")+
    expand_limits(y=0)+
@@ -190,7 +191,20 @@ Con conjunto de datos **datos1** realice un boxplot donde la variable X es Year 
    theme_bw()
 ```
 
-### **Ejercicio 8.** **Importar la base de Datos2** 
+### **Ejercicio 8.** **Graficar scatter plot con ggplot ()** 
+
+Con el conjunto de datos **datos1** realice un gráfico de dispersión donde la variable X=**DispOvas** y la variable Y =**ProdNac**. Colore por especies.Además, use el comando expand_limits(y=0) para que el eje Y comience en cero.
+
+```{r, fig.width= 8}
+ ggplot(datos1, aes(x= DispOvas, y= ProdNac, color=Especies))+
+   geom_point()+
+  labs(y= "Producción Nacional", x= "Disponibilidad de Ovas",
+       caption = "Fuente: Sernapesca")+
+   expand_limits(y=0)+
+   theme_bw()
+```
+
+### **Ejercicio 9.** **Importar la base de Datos2** 
 
 Cree un objeto llamado **datos2** e importe el set de datos **Datos2** usando la función **_read_excel()_** de la librería **readxl**. Explore el set de datos usando las funciones **head()** y **str()**.
 
@@ -200,7 +214,7 @@ head(datos2)
 str(datos2)
 ```
 
-### **Ejercicio 9.** **Reemplazar los valores faltantes en la base de datos datos2** 
+### **Ejercicio 10.** **Reemplazar valores faltantes** 
 
 Reemplace los valores faltantes **NA** por **0** de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2**. Use la función **_replace_na()_** y como argumento de esta función haga una **lista** con estas variables e igualelas a cero.
 
@@ -211,9 +225,9 @@ replace_na(list(Region_Lagos = 0, Region_Aysen = 0, Region_Magallanes = 0)) %>%
          Region_Magallanes = Region_Magallanes)
 ```
 
-### **Ejercicio 10.** **Genere una nueva variable a partir de la información de otras variables** 
+### **Ejercicio 11.** **Generar variables derivadas** 
 
-Genere una nueva variable llamada **NTotal** a partir de la suma de los datos de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2** generada en el **ejercicio 9**. También, genere una variable llamada **Per_NTotal** que es el porcentaje mensual de casos de ISA confirmados. Use la función **_mutate_**.
+Genere una nueva variable llamada **NTotal** a partir de la suma de los datos de las variables Region_Lagos, Region_Aysen y Region_Magallanes de la base de datos **datos2** generada en el **ejercicio 10**. También, genere una variable llamada **Per_NTotal** que es el porcentaje mensual de casos de ISA confirmados. Use la función **_mutate_**.
 
 ```{r datos2}
 datos2 %>%
@@ -224,35 +238,26 @@ replace_na(list(Region_Lagos = 0, Region_Aysen = 0, Region_Magallanes = 0)) %>%
          Per_NTotal = (NTotal/sum(NTotal))*100)
 ```
 
-### **Ejercicio 11.** **Realice un diagrama de barras** 
+### **Ejercicio 12.** **Realizar diagrama de barras** 
 
-Cargue la base de datos **datos2_new.txt**, estos datos son los que se generaron con la información del ejercicio anterior. Use ggplot() para realizar un diagrama de barras con la variables X = Mes, e Y = NTotal.
+Cargue la base de datos **datos2_new.txt**, estos datos son los que se generaron con la información del ejercicio anterior. Use la función **_ggplot()_** para realizar un diagrama de barras con la variables **X** = Mes, e **Y** = NTotal. Para hacer el gráfico de barras primero, debes volver la variable meses **factor** y sus levels deben ser cada uno de los meses en orden, esto es para que en el eje de la **X** queden organizadas las etiquetas según los meses del año. Colore las barras por mes.Además, use el comando expand_limits(y=0) para que el eje Y comience en cero.
 
 ```{r}
 datos2_new<-read.table("datos2_new.txt", header = TRUE, sep = " ")
+
+datos2_new[,1] <- factor(datos2_new$Mes,
+                         levels= c("Enero","Febrero","Marzo","Abril","Mayo",
+                                   "Junio","Julio","Agosto","Septiembre",                                           "Octubre","Noviembre","Diciembre") )
 datos2_new
+
 ```
 
-
-```{r datos2_new, fig.width= 10}
-datos2_new<-read.table("datos2_new.txt", header = TRUE, sep = " ")
-datos2_new
-datos2_new[,1] <- as.factor(datos2_new$Mes)
-datos2_new
-mes_cod<- datos2_new[sort(order(datos2_new$Mes)),] 
-levels(mes_cod) <- c("Enero","Febrero","Marzo","Abril","Mayo","Junio",                               "Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
-mes_cod
-
-
-Datos_new <- mes_cod %>%
-  group_by(Mes)
-  
-Datos_new
-
-ggplot(Datos_new, aes(x=Mes, y= NTotal))+
+```{r datos2_new, fig.width= 9}
+ggplot(datos2_new, aes(x=Mes, y= NTotal, fill= Mes))+
   geom_col() +
   expand_limits(y=0)+
-  labs(title= "Número de nuevos casos (incidencia) confirmados HPR0 durante el 2019", y= "Nº Total de casos de ISA por mes", x= "Mes",
+  labs(title= "Número de nuevos casos (incidencia) confirmados HPR0 durante el 2019", 
+       y= "Nº Total de casos de ISA por mes", x= "Mes",
        caption = "Fuente: Sernapesca")+
   guides(fill=FALSE, color=FALSE)+
   theme_bw()
