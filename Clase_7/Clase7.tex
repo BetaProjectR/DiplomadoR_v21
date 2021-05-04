@@ -1,0 +1,498 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Clase 7 Manipulación de bases de datos con Tidiverse},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Clase 7 Manipulación de bases de datos con Tidiverse}
+\subtitle{Diplomado en Análisis de datos con R para la acuicultura}
+\author{true}
+\date{04 mayo 2021}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{}
+\protect\hypertarget{section}{}
+
+\textbf{PLAN DE CLASE}
+
+\textbf{1).} \textbf{Introducción.}
+
+\begin{itemize}
+\item
+  \textbf{Preguntas al curso.}
+\item
+  \textbf{Estudio de caso.}
+\end{itemize}
+
+\textbf{2).} \textbf{Práctica con R y Rstudio cloud.}
+
+\begin{itemize}
+\item
+  \textbf{Manipula y genera nuevas bases de datos y gráficos a partir de
+  comandos de Tidyverse.}
+\item
+  \textbf{Escribir un código de programación} o \textbf{\emph{script}.}
+\item
+  \textbf{Elaborar un reporte html con Rmarkdown.}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-1}{}
+
+\textbf{Introducción}
+
+\textbf{\emph{Clase 7 -- Manipulación de bases de datos}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-2}{}
+
+\textbf{PREGUNTAS AL CURSO}
+
+\textbf{1).} \textbf{Señale 3 razones de la importancia de filtrar
+observaciones por algún criterio, hacer subconjuntos de datos y generar
+variables derivadas con información de variables existentes en el set de
+datos}.
+
+\textbf{2).} \textbf{Desde su experiencia, comente sobre que tipo de
+herramientas ha usado en sus análisis de datos, para filtrar o generar
+subconjuntos de bases de datos}.
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-3}{}
+
+\textbf{ESTUDIO DE CASO}
+
+\textbf{¿Hay datos faltantes en el set de datos, si hay, cuántos son?}
+
+\textbf{¿ Se podría en R sumar datos NA con números, come sería el
+resultado de adicionar estos tipos de datos?}
+
+\begin{block}{}
+
+\textbf{MANIPULACIÓN DE BASES DE DATOS}
+
+Es una de las etapas que más tiempo demanda antes de realizar el proceso
+de analizar los datos; ya que implica dar el formato adecuado a nuestro
+set de datos. Algunos aspectos a considerar a la hora de manipular bases
+de datos son:
+
+\begin{itemize}
+\item
+  Aplicar filtros
+\item
+  Remover o imputar datos faltantes
+\item
+  Usar agrupamientos por algún criterio
+\item
+  Seleccionar variables
+\item
+  Generar variables derivadas de la ya existentes
+\end{itemize}
+
+\textbf{\emph{Una herramienta útil para la manipulación de datos es
+Tidyverse.}}
+
+\end{block}
+
+\begin{block}{}
+
+\textbf{¿ CÓMO FUNCIONA LA MANIPULACIÓN DE BASES DE DATOS CON
+TIDIVERSE?}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{Tidyverse} 
+
+}
+
+\caption{Figura tomada de DataCamp}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\end{block}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-6}{}
+
+\textbf{¿CÓMO MANIPULAR LOS DATA FRAMES?}
+
+El paquete \textbf{dplyr} del tidyverse posee funciones que realizan
+algunas de las operaciones más comunes cuando se trabaja con los
+\textbf{\emph{data frames}}, permitiendo manipular de una forma ágil la
+base de datos que queremos analizar \emph{a posteriori}.
+
+Veamos algunas \textbf{funciones claves}:
+
+\begin{itemize}
+\item
+  Para cambiar la tabla de datos agregando una nueva columna, utilizamos
+  \textbf{mutate()}.
+\item
+  Para filtrar la tabla de datos a un subconjunto de filas, utilizamos
+  \textbf{filter()}.
+\item
+  Para subdividir los datos seleccionando columnas específicas, usamos
+  \textbf{select()}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-7}{}
+
+\textbf{PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS 2016-2017}
+
+El año 2017, la producción nacional de ovas aumentó en un 9\% en
+relación al año 2016. El principal proveedor de ovas de salmónidos es
+Islandia.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{Ovas} 
+
+}
+
+\caption{Figura tomada de informe de Sernapesca}\label{fig:unnamed-chunk-2}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-8}{}
+
+\textbf{FILTRAR DATOS DE PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS
+DEL AÑO 2016}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filter}\NormalTok{(Year }\OperatorTok{==}\StringTok{ }\DecValTok{2016}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:table}Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).}
+\centering
+\fontsize{20}{22}\selectfont
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+Especies & Year & ProdNac & DispOvas & Importacion\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón del Atlántico}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{361.24}}} & \cellcolor{blue}{\textcolor{white}{\textbf{478.47}}} & \cellcolor{blue}{\textcolor{white}{\textbf{3.32}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón Plateado}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{124.60}}} & \cellcolor{blue}{\textcolor{white}{\textbf{186.83}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Trucha Arcoiris}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{101.04}}} & \cellcolor{blue}{\textcolor{white}{\textbf{187.40}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+Salmón del Atlántico & 2017 & 426.82 & 587.17 & 7.54\\
+\hline
+Salmón Plateado & 2017 & 109.15 & 206.68 & 0.00\\
+\hline
+Trucha Arcoiris & 2017 & 106.25 & 164.14 & 0.00\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-9}{}
+
+\textbf{AGRUPAR DATOS DE PRODUCCIÓN Y DISPONIBILIDAD NACIONAL DE OVAS
+PARA LOS AÑOS EVALUADOS}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{group_by}\NormalTok{(Year)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).}
+\centering
+\fontsize{20}{22}\selectfont
+\begin{tabular}[t]{l|r|r|r|r}
+\hline
+Especies & Year & ProdNac & DispOvas & Importacion\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón del Atlántico}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{361.24}}} & \cellcolor{blue}{\textcolor{white}{\textbf{478.47}}} & \cellcolor{blue}{\textcolor{white}{\textbf{3.32}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón Plateado}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{124.60}}} & \cellcolor{blue}{\textcolor{white}{\textbf{186.83}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Trucha Arcoiris}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{101.04}}} & \cellcolor{blue}{\textcolor{white}{\textbf{187.40}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón del Atlántico}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{426.82}}} & \cellcolor{blue}{\textcolor{white}{\textbf{587.17}}} & \cellcolor{blue}{\textcolor{white}{\textbf{7.54}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón Plateado}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{109.15}}} & \cellcolor{blue}{\textcolor{white}{\textbf{206.68}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Trucha Arcoiris}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{106.25}}} & \cellcolor{blue}{\textcolor{white}{\textbf{164.14}}} & \cellcolor{blue}{\textcolor{white}{\textbf{0.00}}}\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-10}{}
+
+\textbf{SELECCIONAR VARIABLES DE LOS DATOS DE PRODUCCIÓN Y
+DISPONIBILIDAD NACIONAL DE OVAS}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{select}\NormalTok{(Especies, Year,ProdNac)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-7}Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).}
+\centering
+\fontsize{20}{22}\selectfont
+\begin{tabular}[t]{>{}l|>{}r|>{}r|r|r}
+\hline
+Especies & Year & ProdNac & DispOvas & Importacion\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón del Atlántico}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{361.24}}} & 478.47 & 3.32\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón Plateado}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{124.60}}} & 186.83 & 0.00\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Trucha Arcoiris}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2016}}} & \cellcolor{blue}{\textcolor{white}{\textbf{101.04}}} & 187.40 & 0.00\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón del Atlántico}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{426.82}}} & 587.17 & 7.54\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Salmón Plateado}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{109.15}}} & 206.68 & 0.00\\
+\hline
+\cellcolor{blue}{\textcolor{white}{\textbf{Trucha Arcoiris}}} & \cellcolor{blue}{\textcolor{white}{\textbf{2017}}} & \cellcolor{blue}{\textcolor{white}{\textbf{106.25}}} & 164.14 & 0.00\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{}
+\protect\hypertarget{section-11}{}
+
+\textbf{MEDIDAS RESUMEN POR VARIABLE}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summarize}\NormalTok{(}\DataTypeTok{Min_ProdNac =} \KeywordTok{min}\NormalTok{(ProdNac), }\DataTypeTok{Max_ProdNac =} \KeywordTok{max}\NormalTok{(ProdNac))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 2
+##   Min_ProdNac Max_ProdNac
+##         <dbl>       <dbl>
+## 1        101.        427.
+\end{verbatim}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-10}Producción y disponibilidad de Nacional de ovas 2016-2017 (en millones de ovas).}
+\centering
+\fontsize{20}{22}\selectfont
+\begin{tabular}[t]{l|r|>{}r|r|r}
+\hline
+Especies & Year & ProdNac & DispOvas & Importacion\\
+\hline
+Salmón del Atlántico & 2016 & \cellcolor{blue}{\textcolor{white}{\textbf{361.24}}} & 478.47 & 3.32\\
+\hline
+Salmón Plateado & 2016 & \cellcolor{blue}{\textcolor{white}{\textbf{124.60}}} & 186.83 & 0.00\\
+\hline
+Trucha Arcoiris & 2016 & \cellcolor{blue}{\textcolor{white}{\textbf{101.04}}} & 187.40 & 0.00\\
+\hline
+Salmón del Atlántico & 2017 & \cellcolor{blue}{\textcolor{white}{\textbf{426.82}}} & 587.17 & 7.54\\
+\hline
+Salmón Plateado & 2017 & \cellcolor{blue}{\textcolor{white}{\textbf{109.15}}} & 206.68 & 0.00\\
+\hline
+Trucha Arcoiris & 2017 & \cellcolor{blue}{\textcolor{white}{\textbf{106.25}}} & 164.14 & 0.00\\
+\hline
+\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-12}{}
+
+\textbf{REPRESENTACIÓN GRAFICA USANDO GGPLOT2}
+
+\begin{center}\includegraphics{Clase7_files/figure-beamer/unnamed-chunk-11-1} \end{center}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-13}{}
+
+\textbf{Práctica}
+
+\textbf{\emph{Clase 7 -- Manipulación de bases de datos}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-14}{}
+
+\textbf{TRABAJO EN SALAS}
+
+\textbf{1).} \textbf{Guía de trabajo programación con R disponible en
+drive.}
+
+\textbf{2).} \textbf{La tarea se realiza en Rstudio.cloud}.
+
+Ingresa al siguiente proyecto de
+\textbf{\href{https://rstudio.cloud/spaces/135178/project/2447826/}{Rstudio.Cloud}}
+
+\end{frame}
+
+\begin{frame}{}
+\protect\hypertarget{section-15}{}
+
+\textbf{RESUMEN DE LA CLASE}
+
+\begin{itemize}
+\item
+  Revisar ventajas de manipular bases de datos con
+  \textbf{\emph{Tidyverse}}.
+\item
+  Escribir un código de programación con \textbf{\emph{Rmardown}}
+\item
+  Elaborar diferentes reportes dinámicos.
+\end{itemize}
+
+\end{frame}
+
+\end{document}
