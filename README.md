@@ -1,7 +1,5 @@
 # Diplomado Análisis de Datos con R para Acuicultura
 
-Diplomado en Análisis de Datos con R para la Acuicultura versión 2021.
-
 **DIRIGIDO A:**
 
 Profesionales o graduados con nivel de licenciado o Magister relacionados con las Ciencias de la Acuicultura, incluyendo Acuicultores, Agropecuarios, Biólogos, Biólogos Marinos, Biotecnólogos, Ingenieros, Pesqueros, Veterinarios o Zootecnistas.
